@@ -1,0 +1,13 @@
+﻿  ObjReader.cpp
+  MeshBuilder.cpp
+  Main.cpp
+  Timestamp.cpp
+  MsgType.cpp
+  KeyValuePairs.cpp
+  KeyValuePair.cpp
+  GameLogger.cpp
+  Filepath.cpp
+  ConfigReader.cpp
+  BinaryWriter.cpp
+  Generating Code...
+  ObjConverter.vcxproj -> C:\Users\Trevor\Desktop\Game Engine (Refactored)\Game Engine\Debug\ObjConverter.exe
