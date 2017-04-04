@@ -4,17 +4,17 @@
 #include <map>
 #include <memory>
 
-struct Texture
-{
-	Texture(unsigned int id, int width, int height) : handle(id), width(width), height(height) {};
-
-	unsigned int handle;
-	int width, height;
-};
+// Foward Declarations
+class Texture;
 
 class TextureLoader
 {
 public:
+	~TextureLoader() {};
+
+	TextureLoader(const TextureLoader&) = delete;
+	void operator=(const TextureLoader&) = delete;
+
 	static TextureLoader& Instance();
 
 	bool GetTexture(const std::string& imagepath, std::shared_ptr<const Texture>& outTexture);

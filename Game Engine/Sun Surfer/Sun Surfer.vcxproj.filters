@@ -465,6 +465,9 @@
     <ClInclude Include="Light.h">
       <Filter>Header Files\Renderables</Filter>
     </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Header Files\Engine\Asset Loaders</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Data\Shaders\MultiplePhong.vert.shader">

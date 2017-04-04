@@ -21,7 +21,7 @@ Light* RenderEngine::m_lights[MAX_LIGHTS];
 GLuint RenderEngine::m_shadowFrameBuffer;
 GLuint RenderEngine::m_depthRenderBuffer;
 GLuint RenderEngine::m_ambientRenderBuffer;
-const TextureLoader::Texture* RenderEngine::m_diffuseAndSpecularTexture;
+const Texture* RenderEngine::m_diffuseAndSpecularTexture;
 
 bool RenderEngine::Initialize(MyWindow* window, ConfigReader* cfg)
 {
@@ -334,15 +334,15 @@ GraphicsObject* RenderEngine::GetNearestObjectToPosition(glm::vec3 position)
 
 bool RenderEngine::InitializeShaders()
 {
-	if (!m_shaders[PassThrough].Initialize()) return false;
-	if (!m_shaders[PassThrough].AddVertexShader("PassThrough.vert.shader")) return false;
-	if (!m_shaders[PassThrough].AddFragmentShader("PassThrough.frag.shader")) return false;
-	if (!m_shaders[PassThrough].LinkProgram()) return false;
+	if (!m_shaders[ShaderType::PassThrough].Initialize()) return false;
+	if (!m_shaders[ShaderType::PassThrough].AddVertexShader("PassThrough.vert.shader")) return false;
+	if (!m_shaders[ShaderType::PassThrough].AddFragmentShader("PassThrough.frag.shader")) return false;
+	if (!m_shaders[ShaderType::PassThrough].LinkProgram()) return false;
 
-	if (!m_shaders[Debug].Initialize()) return false;
-	if (!m_shaders[Debug].AddVertexShader("Debug.vert.shader")) return false;
-	if (!m_shaders[Debug].AddFragmentShader("Debug.frag.shader")) return false;
-	if (!m_shaders[Debug].LinkProgram()) return false;
+	if (!m_shaders[ShaderType::Debug].Initialize()) return false;
+	if (!m_shaders[ShaderType::Debug].AddVertexShader("Debug.vert.shader")) return false;
+	if (!m_shaders[ShaderType::Debug].AddFragmentShader("Debug.frag.shader")) return false;
+	if (!m_shaders[ShaderType::Debug].LinkProgram()) return false;
 
 	if (!m_shaders[MultiplePhong].Initialize()) return false;
 	if (!m_shaders[MultiplePhong].AddVertexShader("MultiplePhong.vert.shader")) return false;

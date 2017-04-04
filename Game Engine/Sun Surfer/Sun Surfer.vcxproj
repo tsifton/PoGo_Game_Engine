@@ -248,6 +248,7 @@
     <ClInclude Include="SoundEngine.h" />
     <ClInclude Include="SoundListenerComponent.h" />
     <ClInclude Include="SunSurferGame.h" />
+    <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureLoader.h" />
     <ClInclude Include="Timestamp.h" />
     <ClInclude Include="UniformCallback.h" />

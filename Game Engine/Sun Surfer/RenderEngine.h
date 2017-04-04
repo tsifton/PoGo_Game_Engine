@@ -6,81 +6,84 @@
 #include "gtc\matrix_transform.hpp"
 #pragma warning(pop)
 
-#include <vector>
-
 #include "SceneLoader.h"
-#include "TextureLoader.h"
 #include "ShaderProgram.h"
 #include "VertexFormat.h"
 #include "Light.h"
 #include "UniformCallback.h"
-
 #include "ConfigReader.h"
 
-enum Shader
+struct ShaderType
 {
-	PassThrough,
-	Debug,
-	Texture,
-	MultiplePhong,
-	MultipleTextures,
-	TextureLighting,
-	DepthOnly,
-	PhongShadow,
-	PhongShadowVolumes,
-	ShadowVolumeGeneration,
-	FullscreenQuad,
+	enum
+	{
+		PassThrough,
+		Debug,
+		Texture,
+		MultiplePhong,
+		MultipleTextures,
+		TextureLighting,
+		DepthOnly,
+		PhongShadow,
+		PhongShadowVolumes,
+		ShadowVolumeGeneration,
+		FullscreenQuad,
 
-	NumShaders // always last
+		NumShaders // always last
+	};
 };
 
-class Mesh;
-class GraphicsObject;
+// Foward Declarations
 class MyWindow;
+class GraphicsObject;
+class Mesh;
+
 class RenderEngine
 {
 public:
-	static bool Initialize(MyWindow* window, ConfigReader* cfg);
-	static bool Shutdown();
+	bool Draw(glm::mat4 worldToViewMat, glm::mat4 projectionMat);
+	bool DrawScene(glm::mat4 worldToViewMat, glm::mat4 viewToProjectionMat);
+	bool DrawScene(glm::mat4 worldToViewMat, glm::mat4 viewToProjectionMat, GLuint shaderID, GLenum drawMode);
 
-	static bool Draw(glm::mat4 worldToViewMat, glm::mat4 projectionMat);
-	static bool DrawScene(glm::mat4 worldToViewMat, glm::mat4 viewToProjectionMat);
-	static bool DrawScene(glm::mat4 worldToViewMat, glm::mat4 viewToProjectionMat, GLuint shaderID, GLenum drawMode);
+	bool AddGraphicalObject(GraphicsObject* gob);
+	bool AddLight(Light* light);
+	bool AddMesh(Mesh* mesh);
 
-	static bool AddGraphicalObject(GraphicsObject* gob);
-	static bool AddLight(Light* light);
-	static bool AddMesh(Mesh* mesh);
+	bool LoadMeshFromSceneFile(const char* filepath, GraphicsObject * gob, GLuint shaderID);
+	const Texture* const LoadTextureFromFile(const char* imagepath);
 
-	static bool LoadMeshFromSceneFile(const char* filepath, GraphicsObject * gob, GLuint shaderID);
-	static const TextureLoader::Texture* const LoadTextureFromFile(const char* imagepath);
-
-	static GraphicsObject* GetNearestObjectToPosition(glm::vec3 position);
+	GraphicsObject* GetNearestObjectToPosition(glm::vec3 position);
 
 private:
-	static bool InitializeShaders();
-	static bool ShutdownShaders();
+	RenderEngine() {};
 
-	static void CreateFramebuffer();
-	static void CreateShadowFrameBuffer();
+	bool Initialize(MyWindow* window, ConfigReader* cfg);
+	bool Shutdown();
 
-	static void SetLightingUniforms(GraphicsObject* gob, ShaderProgram* shader);
-	static std::string GetLightPropertyName(const char* propertyName, size_t lightIndex);
+	bool InitializeShaders();
+	bool ShutdownShaders();
 
-private:
-	static int		 lightCounter;
+	void CreateFramebuffer();
+	void CreateShadowFrameBuffer();
+
+	void SetLightingUniforms(GraphicsObject* gob, ShaderProgram* shader);
+	std::string GetLightPropertyName(const char* propertyName, size_t lightIndex);
+
+	int lightCounter;
 	static const int MAX_LIGHTS = 20;
-	static Light*	 m_lights[MAX_LIGHTS];
+	Light* m_lights[MAX_LIGHTS];
 
-	static GLint currentShaderID;
-	static const int maxShaders = 15;
-	static ShaderProgram m_shaders[NumShaders];
+	GLint currentShaderID;
+	const int maxShaders = 15;
+	ShaderProgram m_shaders[ShaderType::NumShaders];
 
-	static GLuint m_shadowFrameBuffer;
-	static GLuint m_depthRenderBuffer;
-	static GLuint m_ambientRenderBuffer;
-	static const TextureLoader::Texture* m_diffuseAndSpecularTexture;
+	GLuint m_shadowFrameBuffer;
+	GLuint m_depthRenderBuffer;
+	GLuint m_ambientRenderBuffer;
+	const Texture* m_diffuseAndSpecularTexture;
 
-	static ConfigReader* m_cfg;
-	static MyWindow* m_window;
+	ConfigReader* m_cfg;
+	MyWindow* m_window;
 };
+
 #endif // !RENDERENGINE_H_

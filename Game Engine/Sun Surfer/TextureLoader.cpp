@@ -1,9 +1,11 @@
 #include "TextureLoader.h"
+
 #include "GameLogger.h"
+#include "Texture.h"
+#include "GL\glew.h"
 
 #include <fstream>
 #include <vector>
-#include "GL\glew.h"
 
 TextureLoader & TextureLoader::Instance()
 {
