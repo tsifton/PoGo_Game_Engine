@@ -18,7 +18,6 @@
 
 class GraphicsObject
 {
-
 public:
 	void SetPosition(const glm::vec3& position);
 	void SetScale(const glm::vec3& scale);
@@ -34,7 +33,6 @@ public:
 	std::function <void(GraphicsObject* gob, ShaderProgram* shader)> GetUniformCallback() { return preDrawCallback; }
 	char* GetSubroutineName() { return subroutineName; }
 
-public:
 	GLuint shaderID;
 	bool   isEnabled{ true };
 
@@ -46,10 +44,10 @@ private:
 	glm::vec3 m_position;
 	glm::vec3 m_scale;
 	glm::vec3 m_rotationAxis;
-	float     m_rotationAngle { 0 };
-	bool isMatrixDirty = false;
+	float     m_rotationAngle;
+	bool	  isMatrixDirty;
 
-	char*	  subroutineName;
+	char* subroutineName;
 	std::function <void(GraphicsObject* gob, ShaderProgram* shader)> preDrawCallback{ nullptr };
 	glm::mat4 m_modelToWorldMatrix;
 };

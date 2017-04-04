@@ -1,10 +1,4 @@
 #include "SunSurferGame.h"
-#include "GameLogger.h"
-#include "ConfigReader.h"
-#include "RenderEngine.h"
-#include "SoundEngine.h"
-#include "MyWindow.h"
-#include "MyGL.h"
 
 #pragma warning(push)
 #pragma warning(disable: 4201)
@@ -14,12 +8,19 @@
 #include "gtc\matrix_transform.hpp"
 #pragma warning(pop)
 
-bool SunSurferGame::Initialize(MyWindow* window)
+#include "GameLogger.h"
+#include "ConfigReader.h"
+#include "RenderEngine.h"
+#include "SoundEngine.h"
+#include "MyWindow.h"
+#include "MyGL.h"
+#include "MyKeyboard.h"
+
+bool SunSurferGame::Initialize()
 {
-	m_window = window;
 	if (!InitializeGL()) return false;
 	if (!InitializeKeys()) return false;
-	if (!RenderEngine::Initialize(window, m_cfg)) return false;
+	if (!RenderEngine::Initialize()) return false;
 	/*if (!SoundEngine::Initialize(m_cfg)) return false;*/
 	/*m_entityManager.BuildDebugCamera("Camera");*/
 	m_entityManager.BuildPlayer("Player");

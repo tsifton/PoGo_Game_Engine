@@ -37,14 +37,14 @@ bool ShapeManager::InitializeShapes()
 	// Generate a DebugArrow
 	ShapeGenerator::MakeDebugArrow(&m_debugArrow);
 	RenderEngine::AddGraphicalObject(&m_debugArrow);
-	m_debugArrow.rotationAxis = glm::vec3(0, 0, 1);
-	m_debugArrow.rotateAngle = -90.0f;
-	m_debugArrow.BuildModelToWorldMatrix(glm::vec3(0.0f, 5.0f, 0.0f), glm::rotate(glm::mat4(), glm::radians(m_debugArrow.rotateAngle), m_debugArrow.rotationAxis), glm::vec3(1.0f));
+	m_debugArrow.SetRotation(glm::vec3(0, 0, 1), -90.0f);
+	m_debugArrow.SetPosition(glm::vec3(0.0f, 5.0f, 0.0f));
 
 	// Generate a Grid
 	ShapeGenerator::MakeGrid(&m_grid, 100, glm::vec3(0.0f, 0.0f, 1.0f));
 	RenderEngine::AddGraphicalObject(&m_grid);
-	m_grid.BuildModelToWorldMatrix(glm::vec3(0.0f, -.2f, 0.0f), glm::mat4(), glm::vec3(1000));
+	m_grid.SetPosition(glm::vec3(0.0f, -.2f, 0.0f));
+	m_grid.SetScale(glm::vec3(1000));
 	m_grid.SetUniformCallback(UniformCallback::Debug);
 
 	//// Make a Dargon that has multiple phong
@@ -61,47 +61,48 @@ bool ShapeManager::InitializeShapes()
 	//m_dargon.AddLightIndex(0);
 
 	// Make a Hideout that has multiple phong
-	RenderEngine::LoadMeshFromSceneFile("..\\Data\\Scenes\\Hideout.PN.scene", &m_hideout, Shader::PhongShadowVolumes);
+	RenderEngine::LoadMeshFromSceneFile("..\\Data\\Scenes\\Hideout.PN.scene", &m_hideout, ShaderType::PhongShadowVolumes);
 	/*SceneLoader::GetMeshFromSceneFile("..\\Data\\Scenes\\Hideout.PN.scene", m_hideoutCollision.m_mesh);*/
 	/*CollisionDetection::AddCollidable(&m_hideoutCollision);*/
 	m_hideoutCollision.BuildModelToWorldMatrix(glm::vec3(-10.0f, 0.0f, -60.0f), glm::mat4(), glm::vec3(1.0f));
 	RenderEngine::AddGraphicalObject(&m_hideout);
-	m_hideout.BuildModelToWorldMatrix(glm::vec3(-10.0f, 0.0f, -60.0f), glm::mat4(), glm::vec3(1.0f));
+	m_hideout.SetPosition(glm::vec3(-10.0f, 0.0f, -60.0f));
 	m_hideout.SetUniformCallback(UniformCallback::MultipleShading);
 
-	m_hideout.SetMaterialAmbientColor(glm::vec3(0.5f, 0.5f, 0.5f));
-	m_hideout.SetMaterialDiffuseColor(glm::vec3(0.5f, 0.5f, 0.5f));
-	m_hideout.SetMaterialSpecularColor(glm::vec3(1.0f, 1.0f, 1.0f));
-	m_hideout.SetMaterialShininessFactor(64);
+	m_hideout.material.SetAmbientColor(glm::vec3(0.5f, 0.5f, 0.5f));
+	m_hideout.material.SetDiffuseColor(glm::vec3(0.5f, 0.5f, 0.5f));
+	m_hideout.material.SetSpecularColor(glm::vec3(1.0f, 1.0f, 1.0f));
+	m_hideout.material.SetShininessFactor(64);
 	m_hideout.AddLightIndex(0);
 
 	// Make a torus that has multiple phong
-	RenderEngine::LoadMeshFromSceneFile("..\\Data\\Scenes\\Torus.PN.scene", &m_torus, Shader::PhongShadowVolumes);
+	RenderEngine::LoadMeshFromSceneFile("..\\Data\\Scenes\\Torus.PN.scene", &m_torus, ShaderType::PhongShadowVolumes);
 	RenderEngine::AddGraphicalObject(&m_torus);
-	m_torus.BuildModelToWorldMatrix(glm::vec3(-45.0f, 7.0f, 15.0f), glm::mat4(), glm::vec3(5.0f));
+
+	m_torus.SetPosition(glm::vec3(-45.0f, 7.0f, 15.0f));
+	m_torus.SetPosition(glm::vec3(5.0f));
 	m_torus.SetUniformCallback(UniformCallback::MultipleShading);
 	m_torus.mesh->renderInfo.mode = GL_TRIANGLES;
 
-	m_torus.SetMaterialAmbientColor(glm::vec3(0.0f, 0.0f, 1.0f));
-	m_torus.SetMaterialDiffuseColor(glm::vec3(0.0f, 0.0f, 1.0f));
-	m_torus.SetMaterialSpecularColor(glm::vec3(1.0f, 1.0f, 1.0f));
-	m_torus.SetMaterialShininessFactor(32);
+	m_torus.material.SetAmbientColor(glm::vec3(0.0f, 0.0f, 1.0f));
+	m_torus.material.SetDiffuseColor(glm::vec3(0.0f, 0.0f, 1.0f));
+	m_torus.material.SetSpecularColor(glm::vec3(1.0f, 1.0f, 1.0f));
+	m_torus.material.SetShininessFactor(32);
 	m_torus.AddLightIndex(0);
 
 	// Generate the Lighting Cubes
 	for (int i = 0; i < NUM_LIGHTS; i++)
 	{
-		RenderEngine::LoadMeshFromSceneFile("..\\Data\\Scenes\\Cube.PN.scene", &m_lightingCubes[i], Shader::MultiplePhong);
+		RenderEngine::LoadMeshFromSceneFile("..\\Data\\Scenes\\Cube.PN.scene", &m_lightingCubes[i], ShaderType::MultiplePhong);
 		RenderEngine::AddLight(&m_lightingCubes[i]);
 		m_lightingCubes[i].isEnabled = true;
 		m_lightingCubes[i].SetUniformCallback(UniformCallback::MultipleShading);
-		m_lightingCubes[i].rotationSpeed = 10;
-		m_lightingCubes[i].rotationAxis = glm::vec3(-1, 0, 0);
+		m_lightingCubes[i].SetRotation(glm::vec3(-1, 0, 0), 0.0f);
 
-		m_lightingCubes[i].SetMaterialEmissiveColor(glm::vec3(1.0f, 1.0f, 1.0f));
-		m_lightingCubes[i].SetAmbientColor(glm::vec3(0.2f, 0.2f, 0.2f));
-		m_lightingCubes[i].SetDiffuseColor(glm::vec3(1.0f, 1.0f, 1.0f));
-		m_lightingCubes[i].SetSpecularColor(glm::vec3(1.0f, 1.0f, 1.0f));
+		m_lightingCubes[i].material.SetEmissiveColor(glm::vec3(1.0f, 1.0f, 1.0f));
+		m_lightingCubes[i].material.SetAmbientColor(glm::vec3(0.2f, 0.2f, 0.2f));
+		m_lightingCubes[i].material.SetDiffuseColor(glm::vec3(1.0f, 1.0f, 1.0f));
+		m_lightingCubes[i].material.SetSpecularColor(glm::vec3(1.0f, 1.0f, 1.0f));
 	}
 	return true;
 }
@@ -114,7 +115,7 @@ void ShapeManager::SetSettingsForLightingTestObjects()
 		std::stringstream cfgKey;
 		cfgKey << "SunSurfer.LightingTest.Light" << i << ".Position";
 		m_cfg->GetFloatsForKey(cfgKey.str().c_str(), 3, &lightPosition[0]);
-		m_lightingCubes[i].BuildModelToWorldMatrix(lightPosition, glm::mat4(), glm::vec3(1.0f));
+		m_lightingCubes[i].SetPosition(lightPosition);
 	}
 }
 

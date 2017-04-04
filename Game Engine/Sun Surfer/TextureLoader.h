@@ -4,33 +4,34 @@
 #include <map>
 #include <memory>
 
-// Foward Declarations
-class Texture;
+#include "GL\glew.h"
+#include "Texture.h"
 
 class TextureLoader
 {
 public:
-	~TextureLoader() {};
-
-	TextureLoader(const TextureLoader&) = delete;
-	void operator=(const TextureLoader&) = delete;
-
 	static TextureLoader& Instance();
 
-	bool GetTexture(const std::string& imagepath, std::shared_ptr<const Texture>& outTexture);
-	std::shared_ptr<const Texture> GetEmptyTexture(const std::string& name, int width, int height);
-	std::shared_ptr<const Texture> GetEmptyShadowMapTexture(const std::string& name, int width, int height);
+	TextureLoader(const TextureLoader&)  = delete;
+	void operator=(const TextureLoader&) = delete;
+
+	~TextureLoader() {};
+
+	Texture::SharedPtr GetTexture(const std::string& imagepath);
+	Texture::SharedPtr GetEmptyTexture(int width, int height);
+	Texture::SharedPtr GetEmptyShadowMapTexture(int width, int height);
 
 private:
-	typedef std::shared_ptr<const Texture>			TextureSharedPtr;
+	typedef std::unique_ptr<const Texture>			TextureUniquePtr;
 	typedef std::weak_ptr<const Texture>			TextureWeakPtr;
 	typedef std::map<std::string, TextureWeakPtr>	TextureMap;
 
 	TextureLoader() {};
 
-	bool GetLoadedTexture(const std::string& imagepath, TextureSharedPtr& outTexture);
-	bool LoadTexture(const std::string& imagepath, TextureSharedPtr& outTexture);
-	std::shared_ptr<const Texture> BufferTexture(const std::string& imagepath, unsigned int id, int width, int height);
+	Texture::SharedPtr GetLoadedTexture(const std::string& imagepath);
+	Texture::SharedPtr LoadTexture(const std::string& imagepath);
+	void UnloadTexture(const Texture* texture);
+	Texture::SharedPtr BufferTexture(const std::string& imagepath, GLuint id, int width, int height);
 
 	TextureMap m_textureMap;
 };

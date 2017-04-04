@@ -1,159 +1,66 @@
 ﻿  UniformCallback.cpp
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(29): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(30): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(40): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\uniformcallback.cpp(12): error C2039: 'GetMaterialEmissiveColor': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\graphicsobject.h(20): note: see declaration of 'GraphicsObject'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\uniformcallback.cpp(12): error C2039: 'GetEmissiveColor': is not a member of 'Material'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(15): note: see declaration of 'Material'
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\uniformcallback.cpp(12): error C2198: 'PFNGLUNIFORM3FVPROC': too few arguments for call
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\uniformcallback.cpp(110): error C2039: 'GetMaterialEmissiveColor': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\graphicsobject.h(20): note: see declaration of 'GraphicsObject'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\uniformcallback.cpp(110): error C2039: 'GetEmissiveColor': is not a member of 'Material'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(15): note: see declaration of 'Material'
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\uniformcallback.cpp(110): error C2198: 'PFNGLUNIFORM3FVPROC': too few arguments for call
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\uniformcallback.cpp(116): error C2039: 'GetMaterialAmbientColor': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\graphicsobject.h(20): note: see declaration of 'GraphicsObject'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\uniformcallback.cpp(116): error C2039: 'GetAmbientColor': is not a member of 'Material'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(15): note: see declaration of 'Material'
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\uniformcallback.cpp(116): error C2198: 'PFNGLUNIFORM3FVPROC': too few arguments for call
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\uniformcallback.cpp(122): error C2039: 'GetMaterialDiffuseColor': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\graphicsobject.h(20): note: see declaration of 'GraphicsObject'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\uniformcallback.cpp(122): error C2039: 'GetDiffuseColor': is not a member of 'Material'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(15): note: see declaration of 'Material'
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\uniformcallback.cpp(122): error C2198: 'PFNGLUNIFORM3FVPROC': too few arguments for call
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\uniformcallback.cpp(128): error C2039: 'GetMaterialSpecularColor': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\graphicsobject.h(20): note: see declaration of 'GraphicsObject'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\uniformcallback.cpp(128): error C2039: 'GetSpecularColor': is not a member of 'Material'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(15): note: see declaration of 'Material'
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\uniformcallback.cpp(128): error C2198: 'PFNGLUNIFORM3FVPROC': too few arguments for call
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\uniformcallback.cpp(129): error C2039: 'GetMaterialShininessFactor': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\graphicsobject.h(20): note: see declaration of 'GraphicsObject'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\uniformcallback.cpp(129): error C2039: 'GetShininessFactor': is not a member of 'Material'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(15): note: see declaration of 'Material'
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\uniformcallback.cpp(129): error C2198: 'PFNGLUNIFORM1FPROC': too few arguments for call
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\uniformcallback.cpp(134): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\uniformcallback.cpp(134): error C2039: 'GetTextures': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\graphicsobject.h(20): note: see declaration of 'GraphicsObject'
   Timestamp.cpp
   TextureLoader.cpp
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.cpp(22): error C2065: 'map': undeclared identifier
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.cpp(22): error C2228: left of '.find' must have class/struct/union
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.cpp(22): note: type is 'unknown-type'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.cpp(26): error C2065: 'map': undeclared identifier
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.cpp(26): error C2228: left of '.end' must have class/struct/union
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.cpp(26): note: type is 'unknown-type'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.cpp(26): warning C4800: 'Texture *': forcing value to bool 'true' or 'false' (performance warning)
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.cpp(158): error C3867: 'TextureLoader::UnloadTexture': non-standard syntax; use '&' to create a pointer to member
   SunSurferGame.cpp
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(29): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(30): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(40): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(55): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(55): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(55): error C2143: syntax error: missing ';' before '*'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(55): error C2238: unexpected token(s) preceding ';'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(81): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(81): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(81): error C2143: syntax error: missing ';' before '*'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(81): error C2086: 'const int RenderEngine::Texture': redefinition
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(55): note: see declaration of 'RenderEngine::Texture'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(81): error C2238: unexpected token(s) preceding ';'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\sunsurfergame.cpp(23): error C2248: 'RenderEngine::Initialize': cannot access private member declared in class 'RenderEngine'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(62): note: see declaration of 'RenderEngine::Initialize'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(43): note: see declaration of 'RenderEngine'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\sunsurfergame.cpp(23): error C2352: 'RenderEngine::Initialize': illegal call of non-static member function
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(62): note: see declaration of 'RenderEngine::Initialize'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\sunsurfergame.cpp(59): error C2248: 'RenderEngine::Shutdown': cannot access private member declared in class 'RenderEngine'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(63): note: see declaration of 'RenderEngine::Shutdown'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(43): note: see declaration of 'RenderEngine'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\sunsurfergame.cpp(59): error C2352: 'RenderEngine::Shutdown': illegal call of non-static member function
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(63): note: see declaration of 'RenderEngine::Shutdown'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\sunsurfergame.cpp(84): error C2352: 'RenderEngine::Draw': illegal call of non-static member function
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(48): note: see declaration of 'RenderEngine::Draw'
   SoundListenerComponent.cpp
   SoundEngine.cpp
   SoundEmitterComponent.cpp
   ShapeGenerator.cpp
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(29): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(30): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(40): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(55): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(55): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(55): error C2143: syntax error: missing ';' before '*'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(55): error C2238: unexpected token(s) preceding ';'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(81): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(81): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(81): error C2143: syntax error: missing ';' before '*'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(81): error C2086: 'const int RenderEngine::Texture': redefinition
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(55): note: see declaration of 'RenderEngine::Texture'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(81): error C2238: unexpected token(s) preceding ';'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapegenerator.cpp(242): error C2039: 'SetMaterialEmissiveColor': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(38): note: see declaration of 'GraphicsObject'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapegenerator.cpp(277): error C2039: 'SetMaterialEmissiveColor': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(38): note: see declaration of 'GraphicsObject'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapegenerator.cpp(287): error C2039: 'SetMaterialEmissiveColor': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(38): note: see declaration of 'GraphicsObject'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapegenerator.cpp(297): error C2039: 'SetMaterialEmissiveColor': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(38): note: see declaration of 'GraphicsObject'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapegenerator.cpp(242): error C2039: 'SetEmissiveColor': is not a member of 'Material'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(15): note: see declaration of 'Material'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapegenerator.cpp(277): error C2039: 'SetEmissiveColor': is not a member of 'Material'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(15): note: see declaration of 'Material'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapegenerator.cpp(287): error C2039: 'SetEmissiveColor': is not a member of 'Material'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(15): note: see declaration of 'Material'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapegenerator.cpp(297): error C2039: 'SetEmissiveColor': is not a member of 'Material'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(15): note: see declaration of 'Material'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapegenerator.cpp(349): error C2352: 'RenderEngine::AddMesh': illegal call of non-static member function
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(54): note: see declaration of 'RenderEngine::AddMesh'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapegenerator.cpp(359): error C2352: 'RenderEngine::AddMesh': illegal call of non-static member function
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(54): note: see declaration of 'RenderEngine::AddMesh'
   ShaderProgram.cpp
   RenderEngine.cpp
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(29): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(30): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(40): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(55): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(55): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(55): error C2143: syntax error: missing ';' before '*'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(55): error C2238: unexpected token(s) preceding ';'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(81): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(81): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(81): error C2143: syntax error: missing ';' before '*'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(81): error C2086: 'const int RenderEngine::Texture': redefinition
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(55): note: see declaration of 'RenderEngine::Texture'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(81): error C2238: unexpected token(s) preceding ';'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.cpp(24): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.cpp(24): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.cpp(24): error C2143: syntax error: missing ';' before '*'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.cpp(24): error C2373: 'Texture': redefinition; different type modifiers
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(24): note: see declaration of 'Texture'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.cpp(24): error C2039: 'm_diffuseAndSpecularTexture': is not a member of 'RenderEngine'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(41): note: see declaration of 'RenderEngine'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.cpp(113): error C2227: left of '->textureID' must point to class/struct/union/generic type
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.cpp(113): note: type is 'int *'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.cpp(113): error C2660: 'glBindTexture': function does not take 1 arguments
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.cpp(215): error C2039: 'GetLightIndices': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\buffermanager.h(15): note: see declaration of 'GraphicsObject'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.cpp(298): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.cpp(298): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.cpp(298): error C2143: syntax error: missing ';' before '*'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.cpp(298): error C2373: 'Texture': redefinition; different type modifiers
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(24): note: see declaration of 'Texture'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.cpp(298): error C2039: 'LoadTextureFromFile': is not a member of 'RenderEngine'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(41): note: see declaration of 'RenderEngine'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.cpp(299): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.cpp(299): error C2059: syntax error: '{'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.cpp(299): error C2143: syntax error: missing ';' before '{'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.cpp(299): error C2447: '{': missing function header (old-style formal list?)
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.cpp(423): error C2352: 'TextureLoader::GetEmptyTexture': illegal call of non-static member function
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(23): note: see declaration of 'TextureLoader::GetEmptyTexture'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.cpp(439): error C2227: left of '->textureID' must point to class/struct/union/generic type
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.cpp(439): note: type is 'int *'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.cpp(439): error C2198: 'PFNGLFRAMEBUFFERTEXTURE2DPROC': too few arguments for call
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.cpp(210): warning C4100: 'shader': unreferenced formal parameter
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.cpp(210): warning C4100: 'gob': unreferenced formal parameter
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.cpp(440): warning C4189: 'isCompleteFramebuffer': local variable is initialized but not referenced
   Perspective.cpp
   MyWindow.moc.cpp
   MyWindow.cpp
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(29): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(30): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(40): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
   MyGL.cpp
   MyFiles.cpp
   MsgType.cpp
   Main.cpp
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(29): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(30): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(40): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
   KeyValuePairs.cpp
   KeyValuePair.cpp
   MyKeyboard.cpp
@@ -163,98 +70,76 @@ c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material
   GameLogger.cpp
   Filepath.cpp
   ShapeManager.cpp
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(29): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(30): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(40): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(55): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(55): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(55): error C2143: syntax error: missing ';' before '*'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(55): error C2238: unexpected token(s) preceding ';'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(81): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(81): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(81): error C2143: syntax error: missing ';' before '*'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(81): error C2086: 'const int RenderEngine::Texture': redefinition
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(55): note: see declaration of 'RenderEngine::Texture'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(81): error C2238: unexpected token(s) preceding ';'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(40): error C2039: 'rotationAxis': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(38): note: see declaration of 'GraphicsObject'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(41): error C2039: 'rotateAngle': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(38): note: see declaration of 'GraphicsObject'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(42): error C2039: 'BuildModelToWorldMatrix': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(38): note: see declaration of 'GraphicsObject'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(42): error C2039: 'rotateAngle': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(38): note: see declaration of 'GraphicsObject'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(42): error C2672: 'glm::radians': no matching overloaded function found
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(42): error C2039: 'rotationAxis': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(38): note: see declaration of 'GraphicsObject'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(42): error C2672: 'glm::rotate': no matching overloaded function found
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(42): error C2780: 'glm::tmat4x4<T,P> glm::rotate(const glm::tmat4x4<T,P> &,T,const glm::tvec3<T,P> &)': expects 3 arguments - 1 provided
-  c:\users\trevor\desktop\game engine (refactored)\middleware\glm\glm\gtc\matrix_transform.hpp(101): note: see declaration of 'glm::rotate'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(47): error C2039: 'BuildModelToWorldMatrix': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(38): note: see declaration of 'GraphicsObject'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(69): error C2039: 'BuildModelToWorldMatrix': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(38): note: see declaration of 'GraphicsObject'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(72): error C2039: 'SetMaterialAmbientColor': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(38): note: see declaration of 'GraphicsObject'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(73): error C2039: 'SetMaterialDiffuseColor': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(38): note: see declaration of 'GraphicsObject'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(74): error C2039: 'SetMaterialSpecularColor': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(38): note: see declaration of 'GraphicsObject'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(75): error C2039: 'SetMaterialShininessFactor': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(38): note: see declaration of 'GraphicsObject'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(39): error C2352: 'RenderEngine::AddGraphicalObject': illegal call of non-static member function
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(52): note: see declaration of 'RenderEngine::AddGraphicalObject'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(45): error C2352: 'RenderEngine::AddGraphicalObject': illegal call of non-static member function
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(52): note: see declaration of 'RenderEngine::AddGraphicalObject'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(64): error C2352: 'RenderEngine::LoadMeshFromSceneFile': illegal call of non-static member function
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(56): note: see declaration of 'RenderEngine::LoadMeshFromSceneFile'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(68): error C2352: 'RenderEngine::AddGraphicalObject': illegal call of non-static member function
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(52): note: see declaration of 'RenderEngine::AddGraphicalObject'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(72): error C2039: 'SetAmbientColor': is not a member of 'Material'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(15): note: see declaration of 'Material'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(73): error C2039: 'SetDiffuseColor': is not a member of 'Material'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(15): note: see declaration of 'Material'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(74): error C2039: 'SetSpecularColor': is not a member of 'Material'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(15): note: see declaration of 'Material'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(75): error C2039: 'SetShininessFactor': is not a member of 'Material'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(15): note: see declaration of 'Material'
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(76): error C2039: 'AddLightIndex': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(38): note: see declaration of 'GraphicsObject'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(81): error C2039: 'BuildModelToWorldMatrix': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(38): note: see declaration of 'GraphicsObject'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(85): error C2039: 'SetMaterialAmbientColor': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(38): note: see declaration of 'GraphicsObject'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(86): error C2039: 'SetMaterialDiffuseColor': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(38): note: see declaration of 'GraphicsObject'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(87): error C2039: 'SetMaterialSpecularColor': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(38): note: see declaration of 'GraphicsObject'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(88): error C2039: 'SetMaterialShininessFactor': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(38): note: see declaration of 'GraphicsObject'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(89): error C2039: 'AddLightIndex': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(38): note: see declaration of 'GraphicsObject'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(98): error C2039: 'rotationSpeed': is not a member of 'Light'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\light.h(11): note: see declaration of 'Light'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(99): error C2039: 'rotationAxis': is not a member of 'Light'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\light.h(11): note: see declaration of 'Light'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(101): error C2039: 'SetMaterialEmissiveColor': is not a member of 'Light'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\light.h(11): note: see declaration of 'Light'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(117): error C2039: 'BuildModelToWorldMatrix': is not a member of 'Light'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\light.h(11): note: see declaration of 'Light'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(123): error C2039: 'rotateAngle': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(38): note: see declaration of 'GraphicsObject'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(123): error C2039: 'rotationSpeed': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(38): note: see declaration of 'GraphicsObject'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(39): note: see declaration of 'GraphicsObject'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(79): error C2352: 'RenderEngine::LoadMeshFromSceneFile': illegal call of non-static member function
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(56): note: see declaration of 'RenderEngine::LoadMeshFromSceneFile'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(80): error C2352: 'RenderEngine::AddGraphicalObject': illegal call of non-static member function
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(52): note: see declaration of 'RenderEngine::AddGraphicalObject'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(87): error C2039: 'SetAmbientColor': is not a member of 'Material'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(15): note: see declaration of 'Material'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(88): error C2039: 'SetDiffuseColor': is not a member of 'Material'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(15): note: see declaration of 'Material'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(89): error C2039: 'SetSpecularColor': is not a member of 'Material'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(15): note: see declaration of 'Material'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(90): error C2039: 'SetShininessFactor': is not a member of 'Material'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(15): note: see declaration of 'Material'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(91): error C2039: 'AddLightIndex': is not a member of 'GraphicsObject'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(39): note: see declaration of 'GraphicsObject'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(96): error C2352: 'RenderEngine::LoadMeshFromSceneFile': illegal call of non-static member function
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(56): note: see declaration of 'RenderEngine::LoadMeshFromSceneFile'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(97): error C2352: 'RenderEngine::AddLight': illegal call of non-static member function
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(53): note: see declaration of 'RenderEngine::AddLight'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(102): error C2039: 'SetEmissiveColor': is not a member of 'Material'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(15): note: see declaration of 'Material'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(103): error C2039: 'SetAmbientColor': is not a member of 'Material'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(15): note: see declaration of 'Material'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(104): error C2039: 'SetDiffuseColor': is not a member of 'Material'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(15): note: see declaration of 'Material'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(105): error C2039: 'SetSpecularColor': is not a member of 'Material'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(15): note: see declaration of 'Material'
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(124): error C2039: 'rotateAngle': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(38): note: see declaration of 'GraphicsObject'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(124): error C2039: 'rotationAxis': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(38): note: see declaration of 'GraphicsObject'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(124): error C2672: 'glm::rotate': no matching overloaded function found
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(124): error C2780: 'glm::tmat4x4<T,P> glm::rotate(const glm::tmat4x4<T,P> &,T,const glm::tvec3<T,P> &)': expects 3 arguments - 1 provided
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(39): note: see declaration of 'GraphicsObject'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(124): error C2039: 'rotationSpeed': is not a member of 'GraphicsObject'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(39): note: see declaration of 'GraphicsObject'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(125): error C2039: 'rotateAngle': is not a member of 'GraphicsObject'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(39): note: see declaration of 'GraphicsObject'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(125): error C2039: 'rotationAxis': is not a member of 'GraphicsObject'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(39): note: see declaration of 'GraphicsObject'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(125): error C2672: 'glm::rotate': no matching overloaded function found
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(125): error C2780: 'glm::tmat4x4<T,P> glm::rotate(const glm::tmat4x4<T,P> &,T,const glm::tvec3<T,P> &)': expects 3 arguments - 1 provided
   c:\users\trevor\desktop\game engine (refactored)\middleware\glm\glm\gtc\matrix_transform.hpp(101): note: see declaration of 'glm::rotate'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(125): error C2039: 'BuildModelToWorldMatrix': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(38): note: see declaration of 'GraphicsObject'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(135): error C2039: 'rotateAngle': is not a member of 'Light'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\light.h(11): note: see declaration of 'Light'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(135): error C2039: 'rotationSpeed': is not a member of 'Light'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\light.h(11): note: see declaration of 'Light'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(126): error C2039: 'BuildModelToWorldMatrix': is not a member of 'GraphicsObject'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(39): note: see declaration of 'GraphicsObject'
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(136): error C2039: 'rotateAngle': is not a member of 'Light'
   c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\light.h(11): note: see declaration of 'Light'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(136): error C2672: 'glm::radians': no matching overloaded function found
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(136): error C2039: 'rotationAxis': is not a member of 'Light'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(136): error C2039: 'rotationSpeed': is not a member of 'Light'
   c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\light.h(11): note: see declaration of 'Light'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(136): error C2672: 'glm::rotate': no matching overloaded function found
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(136): error C2780: 'glm::tmat4x4<T,P> glm::rotate(const glm::tmat4x4<T,P> &,T,const glm::tvec3<T,P> &)': expects 3 arguments - 1 provided
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(137): error C2039: 'rotateAngle': is not a member of 'Light'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\light.h(11): note: see declaration of 'Light'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(137): error C2672: 'glm::radians': no matching overloaded function found
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(137): error C2039: 'rotationAxis': is not a member of 'Light'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\light.h(11): note: see declaration of 'Light'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(137): error C2672: 'glm::rotate': no matching overloaded function found
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(137): error C2780: 'glm::tmat4x4<T,P> glm::rotate(const glm::tmat4x4<T,P> &,T,const glm::tvec3<T,P> &)': expects 3 arguments - 1 provided
   c:\users\trevor\desktop\game engine (refactored)\middleware\glm\glm\gtc\matrix_transform.hpp(101): note: see declaration of 'glm::rotate'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(140): error C2039: 'BuildModelToWorldMatrix': is not a member of 'Light'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapemanager.cpp(141): error C2039: 'BuildModelToWorldMatrix': is not a member of 'Light'
   c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\light.h(11): note: see declaration of 'Light'
   SceneLoader.cpp
   ProjectilePhysicsComponent.cpp
@@ -264,70 +149,22 @@ c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\shapeman
   MovementComponent.cpp
   MouseComponent.cpp
   Material.cpp
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(29): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(30): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(40): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.cpp(13): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
   KeyboardComponent.cpp
   JumpComponent.cpp
   GravityComponent.cpp
   GraphicsObject.cpp
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(29): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(30): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(40): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
   GraphicalComponent.cpp
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(29): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(30): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(40): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(55): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(55): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(55): error C2143: syntax error: missing ';' before '*'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(55): error C2238: unexpected token(s) preceding ';'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(81): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(81): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(81): error C2143: syntax error: missing ';' before '*'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(81): error C2086: 'const int RenderEngine::Texture': redefinition
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(55): note: see declaration of 'RenderEngine::Texture'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(81): error C2238: unexpected token(s) preceding ';'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\graphicalcomponent.cpp(8): error C2352: 'RenderEngine::LoadMeshFromSceneFile': illegal call of non-static member function
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(56): note: see declaration of 'RenderEngine::LoadMeshFromSceneFile'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\graphicalcomponent.cpp(9): error C2352: 'RenderEngine::AddGraphicalObject': illegal call of non-static member function
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(52): note: see declaration of 'RenderEngine::AddGraphicalObject'
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\graphicalcomponent.cpp(10): error C2039: 'AddTexture': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(38): note: see declaration of 'GraphicsObject'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\graphicalcomponent.cpp(10): error C2039: 'LoadTextureFromFile': is not a member of 'RenderEngine'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(41): note: see declaration of 'RenderEngine'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\graphicalcomponent.cpp(10): error C3861: 'LoadTextureFromFile': identifier not found
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(39): note: see declaration of 'GraphicsObject'
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\graphicalcomponent.cpp(10): error C2352: 'RenderEngine::LoadTextureFromFile': illegal call of non-static member function
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(57): note: see declaration of 'RenderEngine::LoadTextureFromFile'
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\graphicalcomponent.cpp(42): error C2039: 'BuildModelToWorldMatrix': is not a member of 'GraphicsObject'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(38): note: see declaration of 'GraphicsObject'
+  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(39): note: see declaration of 'GraphicsObject'
   EntityManager.cpp
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(29): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(30): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(40): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(55): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(55): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(55): error C2143: syntax error: missing ';' before '*'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(55): error C2238: unexpected token(s) preceding ';'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(81): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(81): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(81): error C2143: syntax error: missing ';' before '*'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(81): error C2086: 'const int RenderEngine::Texture': redefinition
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(55): note: see declaration of 'RenderEngine::Texture'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\renderengine.h(81): error C2238: unexpected token(s) preceding ';'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\entitymanager.cpp(158): warning C4305: 'argument': truncation from 'double' to 'const float'
   Entity.cpp
   ConfigReader.cpp
   Generating Code...
@@ -338,32 +175,8 @@ c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\entityma
   CollidableObject.cpp
   CameraComponent.cpp
   Camera.cpp
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(29): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(30): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(40): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
   BufferManager.cpp
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(29): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(30): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(40): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
   Buffer.cpp
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(29): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(30): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(40): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
   BufferGroup.cpp
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(29): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(30): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
-c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\material.h(40): error C2039: 'Texture': is not a member of 'TextureLoader'
-  c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\textureloader.h(18): note: see declaration of 'TextureLoader'
   BinaryWriter.cpp
   Generating Code...

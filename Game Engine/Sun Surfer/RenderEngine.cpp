@@ -9,29 +9,25 @@
 
 #include <sstream>
 
-ConfigReader* RenderEngine::m_cfg;
-MyWindow*     RenderEngine::m_window;
+//ConfigReader* RenderEngine::m_cfg;
+//MyWindow*     RenderEngine::m_window;
+//
+//ShaderProgram RenderEngine::m_shaders[NumShaders];
+//GLint RenderEngine::currentShaderID = -1;
+//
+//int    RenderEngine::lightCounter = 0;
+//Light* RenderEngine::m_lights[MAX_LIGHTS];
+//
+//GLuint RenderEngine::m_shadowFrameBuffer;
+//GLuint RenderEngine::m_depthRenderBuffer;
+//GLuint RenderEngine::m_ambientRenderBuffer;
+//const Texture* RenderEngine::m_diffuseAndSpecularTexture;
 
-ShaderProgram RenderEngine::m_shaders[NumShaders];
-GLint RenderEngine::currentShaderID = -1;
-
-int    RenderEngine::lightCounter = 0;
-Light* RenderEngine::m_lights[MAX_LIGHTS];
-
-GLuint RenderEngine::m_shadowFrameBuffer;
-GLuint RenderEngine::m_depthRenderBuffer;
-GLuint RenderEngine::m_ambientRenderBuffer;
-const Texture* RenderEngine::m_diffuseAndSpecularTexture;
-
-bool RenderEngine::Initialize(MyWindow* window, ConfigReader* cfg)
+bool RenderEngine::Initialize()
 {
-	m_window = window;
-	m_cfg = cfg;
-
 	if (!BufferManager::Initialize()) return false;
 	if (!InitializeShaders()) return false;
 
-	CreateShadowFrameBuffer();
 	GameLogger::Log(MsgType::Process, "RenderEngine::Initialize() successful.\n");
 	return true;
 }
@@ -40,6 +36,7 @@ bool RenderEngine::Shutdown()
 {
 	if (!ShutdownShaders()) return false;
 	if (!BufferManager::Shutdown()) return false;
+
 	GameLogger::Log(MsgType::Process, "RenderEngine::Shutdown() successful.\n");
 	return true;
 }
@@ -91,7 +88,7 @@ bool RenderEngine::Draw(glm::mat4 worldToViewMat, glm::mat4 viewToProjectionMat)
 	glStencilOpSeparate(GL_FRONT, stencilFailAction, depthFailAction, frontPassAction);
 	glStencilOpSeparate(GL_BACK, stencilFailAction, depthFailAction, backPassAction);
 
-	DrawScene(worldToViewMat, viewToProjectionMat, Shader::ShadowVolumeGeneration, GL_TRIANGLES);
+	DrawScene(worldToViewMat, viewToProjectionMat, ShaderType::ShadowVolumeGeneration, GL_TRIANGLES);
 
 	// Pass Three
 	glDisable(GL_DEPTH_TEST);
@@ -110,8 +107,8 @@ bool RenderEngine::Draw(glm::mat4 worldToViewMat, glm::mat4 viewToProjectionMat)
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_ONE, GL_ONE);
 	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, m_diffuseAndSpecularTexture->textureID);
-	m_shaders[Shader::FullscreenQuad].UseProgram();
+	glBindTexture(GL_TEXTURE_2D, m_diffuseAndSpecularTexture->id);
+	m_shaders[ShaderType::FullscreenQuad].UseProgram();
 	glDrawArrays(GL_POINTS, 0, 1);
 
 	glDisable(GL_BLEND);
@@ -212,14 +209,14 @@ bool RenderEngine::DrawScene(glm::mat4 worldToViewMat, glm::mat4 viewToProjectio
 
 void RenderEngine::SetLightingUniforms(GraphicsObject * gob, ShaderProgram * shader)
 {
-	std::vector<int> lightIndices = gob->GetLightIndices();
+	/*std::vector<int> lightIndices = gob->GetLightIndices();
 	int numIndices = lightIndices.size();
 
 	if (numIndices > 0)
 	{
 		GLint uniformIndex = -1;
 		int lightsUsed = 0;
-		for (int i = 0; i < numIndices; ++i) {
+		for (unsigned int i = 0; i < numIndices; ++i) {
 			int lightIndex = lightIndices[i];
 			if (lightIndex < lightCounter)
 			{
@@ -252,16 +249,14 @@ void RenderEngine::SetLightingUniforms(GraphicsObject * gob, ShaderProgram * sha
 		}
 
 		if ((uniformIndex = shader->GetUniformLocation("numLights")) != -1) glUniform1iv(uniformIndex, 1, &lightsUsed);
-	}
+	}*/
 }
 
-std::string RenderEngine::GetLightPropertyName(const char * propertyName, size_t lightIndex)
+std::string RenderEngine::GetLightPropertyName(const std::string& propertyName, unsigned int lightIndex)
 {
 	std::ostringstream ss;
 	ss << "lights[" << lightIndex << "]." << propertyName;
-	std::string uniformName = ss.str();
-
-	return uniformName;
+	return ss.str();
 }
 
 bool RenderEngine::AddGraphicalObject(GraphicsObject * gob)
@@ -295,12 +290,12 @@ bool RenderEngine::LoadMeshFromSceneFile(const char * filepath, GraphicsObject *
 	return false;
 }
 
-const TextureLoader::Texture* const RenderEngine::LoadTextureFromFile(const char* imagepath)
+Texture::SharedPtr RenderEngine::LoadTextureFromFile(const std::string & imagepath)
 {
-	return TextureLoader::GetTextureID(imagepath);
+	return m_textureLoader.GetTexture(imagepath);
 }
 
-GraphicsObject* RenderEngine::GetNearestObjectToPosition(glm::vec3 position)
+GraphicsObject* RenderEngine::GetNearestObjectToPosition(const glm::vec3& position)
 {
 	float smallestDistance = -1.0f;
 	GraphicsObject* nearestObject = nullptr;
@@ -344,54 +339,54 @@ bool RenderEngine::InitializeShaders()
 	if (!m_shaders[ShaderType::Debug].AddFragmentShader("Debug.frag.shader")) return false;
 	if (!m_shaders[ShaderType::Debug].LinkProgram()) return false;
 
-	if (!m_shaders[MultiplePhong].Initialize()) return false;
-	if (!m_shaders[MultiplePhong].AddVertexShader("MultiplePhong.vert.shader")) return false;
-	if (!m_shaders[MultiplePhong].AddFragmentShader("MultiplePhong.frag.shader")) return false;
-	if (!m_shaders[MultiplePhong].LinkProgram()) return false;
+	if (!m_shaders[ShaderType::MultiplePhong].Initialize()) return false;
+	if (!m_shaders[ShaderType::MultiplePhong].AddVertexShader("MultiplePhong.vert.shader")) return false;
+	if (!m_shaders[ShaderType::MultiplePhong].AddFragmentShader("MultiplePhong.frag.shader")) return false;
+	if (!m_shaders[ShaderType::MultiplePhong].LinkProgram()) return false;
 
-	if (!m_shaders[TextureLighting].Initialize()) return false;
-	if (!m_shaders[TextureLighting].AddVertexShader("SimpleTexture.vert.shader")) return false;
-	if (!m_shaders[TextureLighting].AddFragmentShader("SimpleTexture.frag.shader")) return false;
-	if (!m_shaders[TextureLighting].LinkProgram()) return false;
+	if (!m_shaders[ShaderType::TextureLighting].Initialize()) return false;
+	if (!m_shaders[ShaderType::TextureLighting].AddVertexShader("SimpleTexture.vert.shader")) return false;
+	if (!m_shaders[ShaderType::TextureLighting].AddFragmentShader("SimpleTexture.frag.shader")) return false;
+	if (!m_shaders[ShaderType::TextureLighting].LinkProgram()) return false;
 
-	if (!m_shaders[MultipleTextures].Initialize()) return false;
-	if (!m_shaders[MultipleTextures].AddVertexShader("MultipleTextures.vert.shader")) return false;
-	if (!m_shaders[MultipleTextures].AddFragmentShader("MultipleTextures.frag.shader")) return false;
-	if (!m_shaders[MultipleTextures].LinkProgram()) return false;
+	if (!m_shaders[ShaderType::MultipleTextures].Initialize()) return false;
+	if (!m_shaders[ShaderType::MultipleTextures].AddVertexShader("MultipleTextures.vert.shader")) return false;
+	if (!m_shaders[ShaderType::MultipleTextures].AddFragmentShader("MultipleTextures.frag.shader")) return false;
+	if (!m_shaders[ShaderType::MultipleTextures].LinkProgram()) return false;
 
-	if (!m_shaders[DepthOnly].Initialize()) return false;
-	if (!m_shaders[DepthOnly].AddVertexShader("DepthOnly.vert.shader")) return false;
-	if (!m_shaders[DepthOnly].AddFragmentShader("DepthOnly.frag.shader")) return false;
-	if (!m_shaders[DepthOnly].LinkProgram()) return false;
+	if (!m_shaders[ShaderType::DepthOnly].Initialize()) return false;
+	if (!m_shaders[ShaderType::DepthOnly].AddVertexShader("DepthOnly.vert.shader")) return false;
+	if (!m_shaders[ShaderType::DepthOnly].AddFragmentShader("DepthOnly.frag.shader")) return false;
+	if (!m_shaders[ShaderType::DepthOnly].LinkProgram()) return false;
 
-	if (!m_shaders[PhongShadow].Initialize()) return false;
-	if (!m_shaders[PhongShadow].AddVertexShader("PhongShadow.vert.shader")) return false;
-	if (!m_shaders[PhongShadow].AddFragmentShader("PhongShadow.frag.shader")) return false;
-	if (!m_shaders[PhongShadow].LinkProgram()) return false;
+	if (!m_shaders[ShaderType::PhongShadow].Initialize()) return false;
+	if (!m_shaders[ShaderType::PhongShadow].AddVertexShader("PhongShadow.vert.shader")) return false;
+	if (!m_shaders[ShaderType::PhongShadow].AddFragmentShader("PhongShadow.frag.shader")) return false;
+	if (!m_shaders[ShaderType::PhongShadow].LinkProgram()) return false;
 
-	if (!m_shaders[PhongShadowVolumes].Initialize()) return false;
-	if (!m_shaders[PhongShadowVolumes].AddVertexShader("PhongShadowVolumes.vert.shader")) return false;
-	if (!m_shaders[PhongShadowVolumes].AddFragmentShader("PhongShadowVolumes.frag.shader")) return false;
-	if (!m_shaders[PhongShadowVolumes].LinkProgram()) return false;
+	if (!m_shaders[ShaderType::PhongShadowVolumes].Initialize()) return false;
+	if (!m_shaders[ShaderType::PhongShadowVolumes].AddVertexShader("PhongShadowVolumes.vert.shader")) return false;
+	if (!m_shaders[ShaderType::PhongShadowVolumes].AddFragmentShader("PhongShadowVolumes.frag.shader")) return false;
+	if (!m_shaders[ShaderType::PhongShadowVolumes].LinkProgram()) return false;
 
-	if (!m_shaders[ShadowVolumeGeneration].Initialize()) return false;
-	if (!m_shaders[ShadowVolumeGeneration].AddVertexShader("ShadowVolumeGeneration.vert.shader")) return false;
-	if (!m_shaders[ShadowVolumeGeneration].AddGeometryShader("ShadowVolumeGeneration.geom.shader")) return false;
-	if (!m_shaders[ShadowVolumeGeneration].AddFragmentShader("ShadowVolumeGeneration.frag.shader")) return false;
-	if (!m_shaders[ShadowVolumeGeneration].LinkProgram()) return false;
+	if (!m_shaders[ShaderType::ShadowVolumeGeneration].Initialize()) return false;
+	if (!m_shaders[ShaderType::ShadowVolumeGeneration].AddVertexShader("ShadowVolumeGeneration.vert.shader")) return false;
+	if (!m_shaders[ShaderType::ShadowVolumeGeneration].AddGeometryShader("ShadowVolumeGeneration.geom.shader")) return false;
+	if (!m_shaders[ShaderType::ShadowVolumeGeneration].AddFragmentShader("ShadowVolumeGeneration.frag.shader")) return false;
+	if (!m_shaders[ShaderType::ShadowVolumeGeneration].LinkProgram()) return false;
 
-	if (!m_shaders[FullscreenQuad].Initialize()) return false;
-	if (!m_shaders[FullscreenQuad].AddVertexShader("FullscreenQuad.vert.shader")) return false;
-	if (!m_shaders[FullscreenQuad].AddGeometryShader("FullscreenQuad.geom.shader")) return false;
-	if (!m_shaders[FullscreenQuad].AddFragmentShader("FullscreenQuad.frag.shader")) return false;
-	if (!m_shaders[FullscreenQuad].LinkProgram()) return false;
+	if (!m_shaders[ShaderType::FullscreenQuad].Initialize()) return false;
+	if (!m_shaders[ShaderType::FullscreenQuad].AddVertexShader("FullscreenQuad.vert.shader")) return false;
+	if (!m_shaders[ShaderType::FullscreenQuad].AddGeometryShader("FullscreenQuad.geom.shader")) return false;
+	if (!m_shaders[ShaderType::FullscreenQuad].AddFragmentShader("FullscreenQuad.frag.shader")) return false;
+	if (!m_shaders[ShaderType::FullscreenQuad].LinkProgram()) return false;
 
 	return true;
 }
 
 bool RenderEngine::ShutdownShaders()
 {
-	for (int i = 0; i < NumShaders; i++)
+	for (int i = 0; i < ShaderType::NumShaders; i++)
 	{
 		if (!m_shaders[i].Shutdown()) return false;
 	}
@@ -420,7 +415,7 @@ void RenderEngine::CreateFramebuffer()
 
 void RenderEngine::CreateShadowFrameBuffer()
 {
-	m_diffuseAndSpecularTexture = TextureLoader::GetEmptyTexture(1920, 1080);
+	m_diffuseAndSpecularTexture = m_textureLoader.GetEmptyTexture(1920, 1080);
 
 	glGenRenderbuffers(1, &m_depthRenderBuffer);
 	glBindRenderbuffer(GL_RENDERBUFFER, m_depthRenderBuffer);
@@ -436,7 +431,7 @@ void RenderEngine::CreateShadowFrameBuffer()
 	glBindFramebuffer(GL_FRAMEBUFFER, m_shadowFrameBuffer);
 	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, m_depthRenderBuffer);
 	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, m_ambientRenderBuffer);
-	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT1, GL_TEXTURE_2D, m_diffuseAndSpecularTexture->textureID, 0);
+	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT1, GL_TEXTURE_2D, m_diffuseAndSpecularTexture->id, 0);
 
 	GLenum drawBuffers[] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1 };
 	const GLsizei numDrawBuffers = sizeof(drawBuffers) / sizeof(drawBuffers[0]);

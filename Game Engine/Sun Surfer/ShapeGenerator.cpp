@@ -231,29 +231,29 @@ bool ShapeGenerator::Shutdown()
 
 void ShapeGenerator::MakeCube(GraphicsObject* gob)
 {
-	gob->shaderID = Shader::PassThrough;
+	gob->shaderID = ShaderType::PassThrough;
 	SetRandomColors(cubeVerts, numCubeVerts);
-	gob->mesh = GenerateMesh(&m_cubeMesh, Shader::PassThrough, VertexFormat::PC, GL_TRIANGLES, IndexDataType::Uint, cubeVerts, numCubeVerts, cubeIndices, numCubeIndices);
+	gob->mesh = GenerateMesh(&m_cubeMesh, ShaderType::PassThrough, VertexFormat::PC, GL_TRIANGLES, IndexDataType::Uint, cubeVerts, numCubeVerts, cubeIndices, numCubeIndices);
 }
 
 void ShapeGenerator::MakeDebugCube(GraphicsObject * gob, glm::vec3 color)
 {
-	gob->shaderID = Shader::Debug;
-	gob->SetMaterialEmissiveColor(color);
-	gob->mesh = GenerateMesh(&m_debugCubeMesh, Shader::Debug, VertexFormat::P, GL_LINES, IndexDataType::Uint, debugCubeVerts, numDebugCubeVerts, debugCubeIndices, numDebugCubeIndices);
+	gob->shaderID = ShaderType::Debug;
+	gob->material.SetEmissiveColor(color);
+	gob->mesh = GenerateMesh(&m_debugCubeMesh, ShaderType::Debug, VertexFormat::P, GL_LINES, IndexDataType::Uint, debugCubeVerts, numDebugCubeVerts, debugCubeIndices, numDebugCubeIndices);
 }
 
 void ShapeGenerator::MakePyramid(GraphicsObject * gob)
 {
-	gob->shaderID = Shader::PassThrough;
+	gob->shaderID = ShaderType::PassThrough;
 	SetRandomColors(pyramidVerts, numPyramidVerts);
-	gob->mesh = GenerateMesh(&m_pyramidMesh, Shader::PassThrough, VertexFormat::PC, GL_TRIANGLES, IndexDataType::Uint, pyramidVerts, numPyramidVerts, pyramidIndices, numPyramidIndices);
+	gob->mesh = GenerateMesh(&m_pyramidMesh, ShaderType::PassThrough, VertexFormat::PC, GL_TRIANGLES, IndexDataType::Uint, pyramidVerts, numPyramidVerts, pyramidIndices, numPyramidIndices);
 }
 
 void ShapeGenerator::MakeDebugArrow(GraphicsObject * gob)
 {
-	gob->shaderID = Shader::PassThrough;
-	gob->mesh = GenerateMesh(&m_debugArrowMesh, Shader::PassThrough, VertexFormat::PC, GL_TRIANGLES, IndexDataType::Uint, debugArrowVerts, numDebugArrowVerts, debugArrowIndices, numDebugArrowIndices);
+	gob->shaderID = ShaderType::PassThrough;
+	gob->mesh = GenerateMesh(&m_debugArrowMesh, ShaderType::PassThrough, VertexFormat::PC, GL_TRIANGLES, IndexDataType::Uint, debugArrowVerts, numDebugArrowVerts, debugArrowIndices, numDebugArrowIndices);
 }
 
 enum SphereDefines
@@ -272,10 +272,10 @@ GLuint		sphereIndices[NUMSPHEREINDICES];
 
 void ShapeGenerator::MakeDebugSphere(GraphicsObject * gob, glm::vec3 color)
 {
-	gob->shaderID = Shader::Debug;
+	gob->shaderID = ShaderType::Debug;
 	BuildSphere();
-	gob->SetMaterialEmissiveColor(color);
-	gob->mesh = GenerateMesh(&m_debugSphereMesh, Shader::Debug, VertexFormat::P, GL_LINES, IndexDataType::Uint, sphereVerts, NUMSPHEREVERTS, sphereIndices, NUMSPHEREINDICES);
+	gob->material.SetEmissiveColor(color);
+	gob->mesh = GenerateMesh(&m_debugSphereMesh, ShaderType::Debug, VertexFormat::P, GL_LINES, IndexDataType::Uint, sphereVerts, NUMSPHEREVERTS, sphereIndices, NUMSPHEREINDICES);
 }
 
 void ShapeGenerator::MakeGrid(GraphicsObject * gob, int size, glm::vec3 color)
@@ -284,8 +284,8 @@ void ShapeGenerator::MakeGrid(GraphicsObject * gob, int size, glm::vec3 color)
 	{
 		GenerateGrid(size);
 	}
-	gob->SetMaterialEmissiveColor(color);
-	gob->mesh = GenerateMesh(&m_gridMesh, Shader::Debug, VertexFormat::P, GL_LINES, IndexDataType::Uint, gridVerts, numGridVerts);
+	gob->material.SetEmissiveColor(color);
+	gob->mesh = GenerateMesh(&m_gridMesh, ShaderType::Debug, VertexFormat::P, GL_LINES, IndexDataType::Uint, gridVerts, numGridVerts);
 }
 
 void ShapeGenerator::MakePlane(GraphicsObject* gob, GLuint shaderID, glm::vec2 upperLeft, glm::vec2 lowerRight, float k, glm::vec3 color)
@@ -294,7 +294,7 @@ void ShapeGenerator::MakePlane(GraphicsObject* gob, GLuint shaderID, glm::vec2 u
 	{
 		GeneratePlane(upperLeft, lowerRight, k);
 	}
-	gob->SetMaterialEmissiveColor(color);
+	gob->material.SetEmissiveColor(color);
 	gob->mesh = GenerateMesh(&m_planeMesh, shaderID, VertexFormat::PN, GL_TRIANGLES, IndexDataType::Uint, planeVerts, numPlaneVerts);
 }
 

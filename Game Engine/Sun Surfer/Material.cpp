@@ -10,7 +10,7 @@ void Material::AddLightIndices(int indices[], int numValues)
 	lightIndices.insert(lightIndices.begin(), indices, indices + numValues);
 }
 
-void Material::AddTexture(const TextureLoader::Texture* texture)
+void Material::AddTexture(Texture::SharedPtr texture)
 {
 	textures.push_back(texture);
 }

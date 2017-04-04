@@ -9,7 +9,7 @@ std::clock_t UniformCallback::start = std::clock();
 void UniformCallback::Debug(GraphicsObject * gob, ShaderProgram * shader)
 {
 	GLint uniformIndex = -1;
-	if ((uniformIndex = shader->GetUniformLocation("uEmissiveColor")) != -1) glUniform3fv(uniformIndex, 1, &gob->GetMaterialEmissiveColor()[0]);
+	if ((uniformIndex = shader->GetUniformLocation("uEmissiveColor")) != -1) glUniform3fv(uniformIndex, 1, &gob->material.GetEmissiveColor()[0]);
 }
 
 void UniformCallback::LitCharacter(GraphicsObject * /*gob*/, ShaderProgram * /*shader*/)
@@ -107,34 +107,34 @@ void UniformCallback::SetMaterialUniforms(GraphicsObject * gob, ShaderProgram * 
 void UniformCallback::SetEmissiveUniforms(GraphicsObject * gob, ShaderProgram * shader)
 {
 	GLint uniformIndex = -1;
-	if ((uniformIndex = shader->GetUniformLocation("uEmissiveColor")) != -1) glUniform3fv(uniformIndex, 1, &gob->GetMaterialEmissiveColor()[0]);
+	if ((uniformIndex = shader->GetUniformLocation("uEmissiveColor")) != -1) glUniform3fv(uniformIndex, 1, &gob->material.GetEmissiveColor()[0]);
 }
 
 void UniformCallback::SetAmbientUniforms(GraphicsObject * gob, ShaderProgram * shader)
 {
 	GLint uniformIndex = -1;
-	if ((uniformIndex = shader->GetUniformLocation("material.ambient")) != -1) glUniform3fv(uniformIndex, 1, &gob->GetMaterialAmbientColor()[0]);
+	if ((uniformIndex = shader->GetUniformLocation("material.ambient")) != -1) glUniform3fv(uniformIndex, 1, &gob->material.GetAmbientColor()[0]);
 }
 
 void UniformCallback::SetDiffuseUniforms(GraphicsObject * gob, ShaderProgram * shader)
 {
 	GLint uniformIndex = -1;
-	if ((uniformIndex = shader->GetUniformLocation("material.diffuse")) != -1) glUniform3fv(uniformIndex, 1, &gob->GetMaterialDiffuseColor()[0]);
+	if ((uniformIndex = shader->GetUniformLocation("material.diffuse")) != -1) glUniform3fv(uniformIndex, 1, &gob->material.GetDiffuseColor()[0]);
 }
 
 void UniformCallback::SetSpecularUniforms(GraphicsObject * gob, ShaderProgram * shader)
 {
 	GLint uniformIndex = -1;
-	if ((uniformIndex = shader->GetUniformLocation("material.specular")) != -1) glUniform3fv(uniformIndex, 1, &gob->GetMaterialSpecularColor()[0]);
-	if ((uniformIndex = shader->GetUniformLocation("material.shininess")) != -1) glUniform1f(uniformIndex, gob->GetMaterialShininessFactor());
+	if ((uniformIndex = shader->GetUniformLocation("material.specular")) != -1) glUniform3fv(uniformIndex, 1, &gob->material.GetSpecularColor()[0]);
+	if ((uniformIndex = shader->GetUniformLocation("material.shininess")) != -1) glUniform1f(uniformIndex, gob->material.GetShininessFactor());
 }
 
 void UniformCallback::BindTextures(GraphicsObject * gob)
 {
-	std::vector<const TextureLoader::Texture*> textures = gob->GetTextures();
+	std::vector<Texture::SharedPtr> textures = gob->material.GetTextures();
 	for (size_t i = 0; i < textures.size(); i++)
 	{
 		glActiveTexture(GL_TEXTURE0 + i);
-		glBindTexture(GL_TEXTURE_2D, textures[i]->textureID);
+		glBindTexture(GL_TEXTURE_2D, textures[i]->id);
 	}
 }

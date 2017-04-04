@@ -4,21 +4,21 @@
 #include "ShaderProgram.h"
 #include "ShapeManager.h"
 #include "Perspective.h"
-#include "Camera.h"
-#include "MyKeyboard.h"
 #include "EntityManager.h"
+#include "MyKeyboard.h"
 
+// Forward Declarations
 class MyWindow;
 class QMouseEvent;
 class QWheelEvent;
 class ConfigReader;
+
 class SunSurferGame
 {
 public:
-	SunSurferGame(ConfigReader* cfg) : m_cfg(cfg) {};
+	SunSurferGame(MyWindow* window, ConfigReader* cfg = nullptr) : m_window(window), m_cfg(cfg), m_keyboard(MyKeyboard::GetInstance()) {};
 
-public:
-	bool Initialize(MyWindow* window);
+	bool Initialize();
 	bool InitializeGL();
 	bool InitializeKeys();
 	bool Shutdown();
@@ -35,7 +35,6 @@ private:
 	void ShowFrameRate(float dt);
 	void GetConfigValues();
 
-private:
 	bool  m_paused = false;
 	float m_vertFoV = 60.0f;
 	float m_zNear = 0.01f;
@@ -43,8 +42,8 @@ private:
 	float m_fpsInterval = 1.0f;
 
 	ConfigReader* m_cfg;
-	MyWindow* m_window{ nullptr };
-	MyKeyboard* m_keyboard = MyKeyboard::GetInstance();
+	MyWindow* m_window;
+	MyKeyboard* m_keyboard;
 
 	ShaderProgram m_program;
 	ShapeManager m_shapeManager;

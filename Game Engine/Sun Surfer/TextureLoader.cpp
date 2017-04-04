@@ -1,11 +1,9 @@
 #include "TextureLoader.h"
 
-#include "GameLogger.h"
-#include "Texture.h"
-#include "GL\glew.h"
-
 #include <fstream>
 #include <vector>
+
+#include "GameLogger.h"
 
 TextureLoader & TextureLoader::Instance()
 {
@@ -13,12 +11,13 @@ TextureLoader & TextureLoader::Instance()
 	return *instance;
 }
 
-bool TextureLoader::GetTexture(const std::string & imagepath, std::shared_ptr<const Texture> & outTexture)
+Texture::SharedPtr TextureLoader::GetTexture(const std::string & imagepath)
 {
-	return GetLoadedTexture(imagepath, outTexture) || LoadTexture(imagepath, outTexture);
+	if (Texture::SharedPtr texture = GetLoadedTexture(imagepath)) return texture;
+	return LoadTexture(imagepath);
 }
 
-std::shared_ptr<const Texture> TextureLoader::GetEmptyTexture(const std::string& name, int width, int height)
+Texture::SharedPtr TextureLoader::GetEmptyTexture(int width, int height)
 {
 	GLuint textureID;
 	glGenTextures(1, &textureID);
@@ -29,10 +28,10 @@ std::shared_ptr<const Texture> TextureLoader::GetEmptyTexture(const std::string&
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	
-	return BufferTexture(name, textureID, width, height);
+	return TextureUniquePtr(new Texture(textureID, width, height));
 }
 
-std::shared_ptr<const Texture> TextureLoader::GetEmptyShadowMapTexture(const std::string & name, int width, int height)
+Texture::SharedPtr TextureLoader::GetEmptyShadowMapTexture(int width, int height)
 {
 	GLuint textureID;
 	glGenTextures(1, &textureID);
@@ -48,23 +47,24 @@ std::shared_ptr<const Texture> TextureLoader::GetEmptyShadowMapTexture(const std
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_COMPARE_MODE, GL_COMPARE_REF_TO_TEXTURE);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_COMPARE_FUNC, GL_LESS);
 	
-	return BufferTexture(name, textureID, width, height);
+	return TextureUniquePtr(new Texture(textureID, width, height));
 }
 
-bool TextureLoader::GetLoadedTexture(const std::string & imagepath, TextureSharedPtr & outTexture)
+Texture::SharedPtr TextureLoader::GetLoadedTexture(const std::string & imagepath)
 {
 	// Iterate through loaded textures to find matching imagepath
 	TextureMap::iterator itr = m_textureMap.find(imagepath);
 
 	// If one is found, set the out texture to the created shared_ptr
 	// Return true if the ptr is not nullptr
-	if (itr != m_textureMap.end()) return (outTexture = itr->second.lock()).get();
+	if (itr != m_textureMap.end()) return itr->second.lock();
 
+	// No Texture is found
 	GameLogger::Log(MsgType::Info, "TextureLoader::GetLoadedTexture() - Unable to find a textureID already loaded with the filepath [%s].\n", imagepath);
-	return false;
+	return nullptr;
 }
 
-bool TextureLoader::LoadTexture(const std::string & imagepath, TextureSharedPtr & outTexture)
+Texture::SharedPtr TextureLoader::LoadTexture(const std::string & imagepath)
 {
 	// Data read from the header of the BMP file
 	char header[54];		// Each BMP file begins by a 54-bytes header
@@ -77,17 +77,17 @@ bool TextureLoader::LoadTexture(const std::string & imagepath, TextureSharedPtr 
 	if (!ifs)
 	{ 
 		GameLogger::Log(MsgType::Error, "TextureLoader::Load_BMP_Texture() - Unable to open textureID file with imagepath [%s].\n", imagepath);
-		return false; 
+		return nullptr; 
 	}
 	
 	if (!ifs.read(header, 54)) { // If not 54 bytes read : problem
 		GameLogger::Log(MsgType::Error, "TextureLoader::Load_BMP_Texture() - The BMP file [%s] does not have a proper 54 byte header.\n", imagepath);
-		return false;
+		return nullptr;
 	}
 	
 	if (header[0] != 'B' || header[1] != 'M') {
 		GameLogger::Log(MsgType::Error, "TextureLoader::Load_BMP_Texture() - The BMP file [%s] does not start with the required characters B and M.\n", imagepath);
-		return false;
+		return nullptr;
 	}
 	
 	// Read ints from the byte array
@@ -140,17 +140,23 @@ bool TextureLoader::LoadTexture(const std::string & imagepath, TextureSharedPtr 
 	
 	// Generate mipmaps
 	glGenerateMipmap(GL_TEXTURE_2D);
-	
-	// Add Texture to Texture Map
-	BufferTexture(imagepath, textureID, width, height);
 
-	return true;
+	// Unbind the generated Texture
+	glBindTexture(GL_TEXTURE_2D, 0);
+	
+	// Add Texture to Texture Map and return it
+	return BufferTexture(imagepath, textureID, width, height);
 }
 
-std::shared_ptr<const Texture> TextureLoader::BufferTexture(const std::string& imagepath, unsigned int id, int width, int height)
+void TextureLoader::UnloadTexture(const Texture * texture)
 {
-	TextureSharedPtr sharedTexture(new Texture(id, width, height));
-	TextureWeakPtr   weakTexture(sharedTexture);
+	glDeleteTextures(1, &texture->id);
+}
+
+Texture::SharedPtr TextureLoader::BufferTexture(const std::string& imagepath, GLuint id, int width, int height)
+{
+	Texture::SharedPtr	sharedTexture(new Texture(id, width, height), UnloadTexture);
+	TextureWeakPtr		weakTexture(sharedTexture);
 	m_textureMap.insert(std::make_pair(imagepath, weakTexture));
 	return sharedTexture;
 }

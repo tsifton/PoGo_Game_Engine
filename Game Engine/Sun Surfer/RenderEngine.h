@@ -12,6 +12,7 @@
 #include "Light.h"
 #include "UniformCallback.h"
 #include "ConfigReader.h"
+#include "TextureLoader.h"
 
 struct ShaderType
 {
@@ -41,6 +42,9 @@ class Mesh;
 class RenderEngine
 {
 public:
+	RenderEngine(MyWindow * window, ConfigReader * cfg = nullptr) : m_window(window), m_cfg(cfg), m_textureLoader(TextureLoader::Instance()) { Initialize(); }
+	~RenderEngine() { Shutdown(); }
+
 	bool Draw(glm::mat4 worldToViewMat, glm::mat4 projectionMat);
 	bool DrawScene(glm::mat4 worldToViewMat, glm::mat4 viewToProjectionMat);
 	bool DrawScene(glm::mat4 worldToViewMat, glm::mat4 viewToProjectionMat, GLuint shaderID, GLenum drawMode);
@@ -50,14 +54,12 @@ public:
 	bool AddMesh(Mesh* mesh);
 
 	bool LoadMeshFromSceneFile(const char* filepath, GraphicsObject * gob, GLuint shaderID);
-	const Texture* const LoadTextureFromFile(const char* imagepath);
+	Texture::SharedPtr LoadTextureFromFile(const std::string& imagepath);
 
-	GraphicsObject* GetNearestObjectToPosition(glm::vec3 position);
+	GraphicsObject* GetNearestObjectToPosition(const glm::vec3& position);
 
 private:
-	RenderEngine() {};
-
-	bool Initialize(MyWindow* window, ConfigReader* cfg);
+	bool Initialize();
 	bool Shutdown();
 
 	bool InitializeShaders();
@@ -67,23 +69,24 @@ private:
 	void CreateShadowFrameBuffer();
 
 	void SetLightingUniforms(GraphicsObject* gob, ShaderProgram* shader);
-	std::string GetLightPropertyName(const char* propertyName, size_t lightIndex);
+	std::string GetLightPropertyName(const std::string& propertyName, unsigned int lightIndex);
 
-	int lightCounter;
+	unsigned int lightCounter;
 	static const int MAX_LIGHTS = 20;
 	Light* m_lights[MAX_LIGHTS];
 
 	GLint currentShaderID;
-	const int maxShaders = 15;
+	static const int MAX_SHADERS = 15;
 	ShaderProgram m_shaders[ShaderType::NumShaders];
 
 	GLuint m_shadowFrameBuffer;
 	GLuint m_depthRenderBuffer;
 	GLuint m_ambientRenderBuffer;
-	const Texture* m_diffuseAndSpecularTexture;
+	Texture::SharedPtr m_diffuseAndSpecularTexture;
 
-	ConfigReader* m_cfg;
-	MyWindow* m_window;
+	TextureLoader&  m_textureLoader;
+	ConfigReader*	m_cfg;
+	MyWindow*		m_window;
 };
 
 #endif // !RENDERENGINE_H_

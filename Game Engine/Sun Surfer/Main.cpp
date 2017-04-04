@@ -39,8 +39,9 @@ int main(int argc, char** argv)
 	GetConfigValues(cfg);
 
 	QApplication app(argc, argv);
-	SunSurferGame game(cfg);
-	MyWindow* window = new MyWindow(&app, &game);
+	MyWindow* window = nullptr;
+	SunSurferGame game(window, cfg);
+	window = new MyWindow(&app, &game);
 
 	window->show();
 	SetWindow(window);

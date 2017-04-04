@@ -155,7 +155,7 @@ Entity * EntityManager::BuildPlayer(const char * name)
 	playerEmitterComponent.SetPosition(glm::vec3(0.0f, -5.0f, 0.0f));
 
 	player.worldSpace.position = glm::vec3(0.0f, 10.0f, 0.0f);
-	player.worldSpace.scale = glm::vec3(0.4);
+	player.worldSpace.scale = glm::vec3(0.4f);
 
 	player.modelSpace.lookDirection = glm::vec3(0.0f, 0.0f, 1.0f);
 	player.modelSpace.rightDirection = glm::vec3(-1.0f, 0.0f, 0.0f);
@@ -172,7 +172,7 @@ Entity * EntityManager::BuildPlayer(const char * name)
 
 	playerGravityComponent.SetAcceleration(-45.0f);
 	
-	playerGraphicalComponent.SetShader(Shader::TextureLighting);
+	playerGraphicalComponent.SetShader(ShaderType::TextureLighting);
 	playerGraphicalComponent.SetSceneFilepath("..\\Data\\Scenes\\Character.PTN.scene");
 	playerGraphicalComponent.SetTextureFilepath("..\\Data\\textures\\skin_zombie.bmp");
 	playerGraphicalComponent.SetUniformCallback(UniformCallback::TextureLighting);
@@ -207,7 +207,7 @@ Entity * EntityManager::BuildBullet(const char * name, glm::vec3 position, glm::
 
 	bulletGravityComponent.SetAcceleration(-30.0f);
 
-	bulletGraphicalComponent.SetShader(Shader::TextureLighting);
+	bulletGraphicalComponent.SetShader(ShaderType::TextureLighting);
 	bulletGraphicalComponent.SetSceneFilepath("..\\Data\\Scenes\\Character.PTN.scene");
 	bulletGraphicalComponent.SetTextureFilepath("..\\Data\\textures\\skin_zombie.bmp");
 	bulletGraphicalComponent.SetUniformCallback(UniformCallback::LitCharacter);
@@ -230,7 +230,7 @@ Entity * EntityManager::BuildDargon(const char * name)
 	dargon.modelSpace.upDirection = glm::vec3(0.0f, 1.0f, 0.0f);
 	dargon.modelSpace.rightDirection = glm::vec3(1.0f, 0.0f, 0.0f);
 
-	dargonGraphicalComponent.SetShader(Shader::Texture);
+	dargonGraphicalComponent.SetShader(ShaderType::Texture);
 	dargonGraphicalComponent.SetSceneFilepath("..\\Data\\Scenes\\Dargon.PCT.scene");
 	dargonGraphicalComponent.SetTextureFilepath("..\\Data\\textures\\skin_dargon.bmp");
 	/*dargonGraphicalComponent.SetUniformCallback(UniformCallback::LitDargon);*/
@@ -266,7 +266,7 @@ Entity * EntityManager::BuildStereo(const char * name)
 	stereo.worldSpace.position = glm::vec3(41.0f, 14.0f, -84.0f);
 	stereo.worldSpace.scale = glm::vec3(1.0f);
 
-	stereoGraphicalComponent.SetShader(Shader::PassThrough);
+	stereoGraphicalComponent.SetShader(ShaderType::PassThrough);
 	stereoGraphicalComponent.SetSceneFilepath("..\\Data\\Scenes\\Stereo.PN.scene");
 	/*stereoGraphicalComponent.SetTextureFilepath("..\\Data\\textures\\skin_zombie.bmp");*/
 	stereoGraphicalComponent.SetUniformCallback(UniformCallback::LitCharacter);
@@ -294,7 +294,7 @@ Entity * EntityManager::BuildFirepit(const char * name)
 	firepit.worldSpace.position = glm::vec3(-42.0f, 0.0f, 0.0f);
 	firepit.worldSpace.scale = glm::vec3(1.0f);
 
-	firepitGraphicalComponent.SetShader(Shader::TextureLighting);
+	firepitGraphicalComponent.SetShader(ShaderType::TextureLighting);
 	firepitGraphicalComponent.SetSceneFilepath("..\\Data\\Scenes\\Firepit.PTN.scene");
 	firepitGraphicalComponent.SetTextureFilepath("..\\Data\\textures\\firepit_texture.bmp");
 	firepitGraphicalComponent.SetUniformCallback(UniformCallback::LitCharacter);

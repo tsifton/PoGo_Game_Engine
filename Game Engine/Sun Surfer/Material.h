@@ -1,14 +1,15 @@
 #ifndef MATERIAL_H_
 #define MATERIAL_H_
 
+#include <vector>
+
 #pragma warning(push)
 #pragma warning(disable:4201)
 #include "vec3.hpp"
 #pragma warning(pop)
 
-#include <vector>
 #include <GL\glew.h>
-#include "TextureLoader.h"
+#include "Texture.h"
 
 class Material
 {
@@ -26,8 +27,8 @@ public:
 	void AddLightIndices(int indices[], int numValues);
 	std::vector<int> GetLightIndices() { return lightIndices; }
 
-	void AddTexture(const TextureLoader::Texture* texture);
-	std::vector<const TextureLoader::Texture*> GetTextures() { return textures; }
+	void AddTexture(Texture::SharedPtr texture);
+	std::vector<Texture::SharedPtr> GetTextures() { return textures; }
 
 public:
 	glm::vec3 ambient;
@@ -37,7 +38,7 @@ public:
 	glm::vec3 emissive;
 
 private:
-	std::vector<const TextureLoader::Texture*> textures;
+	std::vector<Texture::SharedPtr> textures;
 	std::vector<int> lightIndices;
 };
 
