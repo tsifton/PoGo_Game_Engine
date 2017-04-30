@@ -30,7 +30,6 @@ private:
 
 	Texture::SharedPtr GetLoadedTexture(const std::string& imagepath);
 	Texture::SharedPtr LoadTexture(const std::string& imagepath);
-	void UnloadTexture(const Texture* texture);
 	Texture::SharedPtr BufferTexture(const std::string& imagepath, GLuint id, int width, int height);
 
 	TextureMap m_textureMap;

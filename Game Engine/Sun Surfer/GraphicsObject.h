@@ -19,6 +19,8 @@
 class GraphicsObject
 {
 public:
+	GraphicsObject() {};
+
 	void SetPosition(const glm::vec3& position);
 	void SetScale(const glm::vec3& scale);
 	void SetRotation(const glm::vec3& axis, float angle);
@@ -36,7 +38,7 @@ public:
 	GLuint shaderID;
 	bool   isEnabled{ true };
 
-	Material  material;
+	Material material;
 	Mesh* mesh;
 	GraphicsObject* nextNode{ nullptr };
 

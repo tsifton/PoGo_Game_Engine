@@ -9,5 +9,6 @@
   Filepath.cpp
   ConfigReader.cpp
   BinaryWriter.cpp
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\binarywriter.cpp(54): warning C4100: 'type': unreferenced formal parameter
   Generating Code...
   ObjConverter.vcxproj -> C:\Users\Trevor\Desktop\Game Engine (Refactored)\Game Engine\Debug\ObjConverter.exe

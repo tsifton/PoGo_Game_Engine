@@ -148,7 +148,7 @@ Texture::SharedPtr TextureLoader::LoadTexture(const std::string & imagepath)
 	return BufferTexture(imagepath, textureID, width, height);
 }
 
-void TextureLoader::UnloadTexture(const Texture * texture)
+void UnloadTexture(const Texture * texture)
 {
 	glDeleteTextures(1, &texture->id);
 }

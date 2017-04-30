@@ -239,7 +239,7 @@ void ShapeGenerator::MakeCube(GraphicsObject* gob)
 void ShapeGenerator::MakeDebugCube(GraphicsObject * gob, glm::vec3 color)
 {
 	gob->shaderID = ShaderType::Debug;
-	gob->material.SetEmissiveColor(color);
+	gob->material.SetEmissive(color);
 	gob->mesh = GenerateMesh(&m_debugCubeMesh, ShaderType::Debug, VertexFormat::P, GL_LINES, IndexDataType::Uint, debugCubeVerts, numDebugCubeVerts, debugCubeIndices, numDebugCubeIndices);
 }
 
@@ -274,7 +274,7 @@ void ShapeGenerator::MakeDebugSphere(GraphicsObject * gob, glm::vec3 color)
 {
 	gob->shaderID = ShaderType::Debug;
 	BuildSphere();
-	gob->material.SetEmissiveColor(color);
+	gob->material.SetEmissive(color);
 	gob->mesh = GenerateMesh(&m_debugSphereMesh, ShaderType::Debug, VertexFormat::P, GL_LINES, IndexDataType::Uint, sphereVerts, NUMSPHEREVERTS, sphereIndices, NUMSPHEREINDICES);
 }
 
@@ -284,7 +284,7 @@ void ShapeGenerator::MakeGrid(GraphicsObject * gob, int size, glm::vec3 color)
 	{
 		GenerateGrid(size);
 	}
-	gob->material.SetEmissiveColor(color);
+	gob->material.SetEmissive(color);
 	gob->mesh = GenerateMesh(&m_gridMesh, ShaderType::Debug, VertexFormat::P, GL_LINES, IndexDataType::Uint, gridVerts, numGridVerts);
 }
 
@@ -294,7 +294,7 @@ void ShapeGenerator::MakePlane(GraphicsObject* gob, GLuint shaderID, glm::vec2 u
 	{
 		GeneratePlane(upperLeft, lowerRight, k);
 	}
-	gob->material.SetEmissiveColor(color);
+	gob->material.SetEmissive(color);
 	gob->mesh = GenerateMesh(&m_planeMesh, shaderID, VertexFormat::PN, GL_TRIANGLES, IndexDataType::Uint, planeVerts, numPlaneVerts);
 }
 
@@ -343,21 +343,21 @@ void ShapeGenerator::GeneratePlane(glm::vec2 upperLeft, glm::vec2 lowerRight, fl
 
 Mesh* ShapeGenerator::GenerateMesh(Mesh * mesh, GLuint shaderID, VertexFormat vertFormat, GLenum mode, IndexDataType indexDataType, void * verts, int numVerts)
 {
-	if (!mesh->verts)
+	/*if (!mesh->verts)
 	{
 		SetMeshValues(mesh, shaderID, vertFormat, mode, indexDataType, verts, numVerts, nullptr, 0);
 		RenderEngine::AddMesh(mesh);
-	}
+	}*/
 	return mesh;
 }
 
 Mesh* ShapeGenerator::GenerateMesh(Mesh* mesh, GLuint shaderID, VertexFormat vertFormat, GLenum mode, IndexDataType indexDataType, void* verts, int numVerts, GLuint* indices, int numIndices)
 {
-	if (!mesh->verts)
+	/*if (!mesh->verts)
 	{
 		SetMeshValues(mesh, shaderID, vertFormat, mode, indexDataType, verts, numVerts, indices, numIndices);
 		RenderEngine::AddMesh(mesh);
-	}
+	}*/
 	return mesh;
 }
 

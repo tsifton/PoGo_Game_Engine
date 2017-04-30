@@ -16,9 +16,9 @@ class ConfigReader;
 class SunSurferGame
 {
 public:
-	SunSurferGame(MyWindow* window, ConfigReader* cfg = nullptr) : m_window(window), m_cfg(cfg), m_keyboard(MyKeyboard::GetInstance()) {};
+	SunSurferGame(ConfigReader* cfg = nullptr) : m_cfg(cfg), m_renderEngine(cfg), m_shapeManager(m_renderEngine), m_keyboard(MyKeyboard::GetInstance()) {};
 
-	bool Initialize();
+	bool Initialize(MyWindow* window);
 	bool InitializeGL();
 	bool InitializeKeys();
 	bool Shutdown();
@@ -45,6 +45,7 @@ private:
 	MyWindow* m_window;
 	MyKeyboard* m_keyboard;
 
+	RenderEngine m_renderEngine;
 	ShaderProgram m_program;
 	ShapeManager m_shapeManager;
 	EntityManager m_entityManager;

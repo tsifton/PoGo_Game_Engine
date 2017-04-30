@@ -5,9 +5,9 @@
 
 bool GraphicalComponent::Initialize()
 {
-	RenderEngine::LoadMeshFromSceneFile(m_sceneFilepath, &m_gob, m_shaderID);
+	/*RenderEngine::LoadMeshFromSceneFile(m_sceneFilepath, &m_gob, m_shaderID);
 	RenderEngine::AddGraphicalObject(&m_gob);
-	m_gob.AddTexture(RenderEngine::LoadTextureFromFile(m_textureFilepath));
+	m_gob.material.AddTexture(TextureLoader::GetTexture(m_textureFilepath));*/
 	return true;
 }
 
@@ -39,5 +39,5 @@ void GraphicalComponent::SetUniformCallback(std::function<void(GraphicsObject*go
 
 void GraphicalComponent::BuildModelToWorldMatrix(glm::vec3 position, glm::mat4 rotate, glm::vec3 scale)
 {
-	m_gob.BuildModelToWorldMatrix(position, rotate, scale);
+	/*m_gob.BuildModelToWorldMatrix(position, rotate, scale);*/
 }

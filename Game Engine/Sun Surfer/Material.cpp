@@ -1,5 +1,7 @@
 #include "Material.h"
 
+
+
 void Material::AddLightIndex(int index)
 {
 	lightIndices.insert(lightIndices.begin(), index);

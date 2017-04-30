@@ -19,7 +19,7 @@ bool MyWindow::Initialize()
 		return false;
 	}
 
-	if (!GameTime::Initialize() /*|| !m_game->Initialize(this)*/)
+	if (!GameTime::Initialize() || !m_game->Initialize(this))
 	{
 		Shutdown();
 		return false;

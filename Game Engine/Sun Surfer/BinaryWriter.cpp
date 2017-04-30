@@ -53,7 +53,6 @@ int BinaryWriter::WriteVertData(std::ofstream & out, VertexFormat format, int nu
 
 int BinaryWriter::WriteIndexData(std::ofstream & out, IndexDataType type, int numIndices, void * pIndices)
 {
-	type;
 	int typeInBytes = sizeof(static_cast<int>(type));
 	int size = typeInBytes * numIndices;
 	out.write(reinterpret_cast<char*>(pIndices), size);

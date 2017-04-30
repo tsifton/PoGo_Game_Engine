@@ -16,11 +16,12 @@
 #include "MyGL.h"
 #include "MyKeyboard.h"
 
-bool SunSurferGame::Initialize()
+bool SunSurferGame::Initialize(MyWindow* window)
 {
+	m_window = window;
 	if (!InitializeGL()) return false;
 	if (!InitializeKeys()) return false;
-	if (!RenderEngine::Initialize()) return false;
+	if (!m_renderEngine.Initialize()) return false;
 	/*if (!SoundEngine::Initialize(m_cfg)) return false;*/
 	/*m_entityManager.BuildDebugCamera("Camera");*/
 	m_entityManager.BuildPlayer("Player");
@@ -56,7 +57,6 @@ bool SunSurferGame::Shutdown()
 {
 	if (!m_shapeManager.Shutdown()) return false;
 	if (!SoundEngine::Shutdown()) return false;
-	if (!RenderEngine::Shutdown()) return false;
 	if (!m_window->Shutdown()) return false;
 	GameLogger::Log(MsgType::Process, "SunSurferGame::Shutdown() successful.\n");
 	return true;
@@ -81,7 +81,7 @@ void SunSurferGame::Draw()
 
 	glm::mat4 worldToViewMat = m_entityManager.GetWorldToViewMatrix();
 	glm::mat4 projectionMat = m_perspective.GetPerspective();
-	RenderEngine::Draw(worldToViewMat, projectionMat);
+	m_renderEngine.Draw(worldToViewMat, projectionMat);
 }
 
 void SunSurferGame::ProcessInput(float /*dt*/)
@@ -124,10 +124,10 @@ void SunSurferGame::MouseScroll(QWheelEvent * e)
 
 void SunSurferGame::OnResizeWindow()
 {
-	if (!m_window) return;
+	/*if (!m_window) return;
 	float aspect = m_window->GetAspectRatio();
 	m_perspective.SetAspect(aspect);
-	glViewport(0, 0, m_window->width(), m_window->height());
+	glViewport(0, 0, m_window->width(), m_window->height());*/
 }
 
 void SunSurferGame::GetConfigValues()

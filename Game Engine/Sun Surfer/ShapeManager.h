@@ -8,11 +8,13 @@
 #include "GraphicsObject.h"
 #include "CollidableObject.h"
 #include "Light.h"
+#include "RenderEngine.h"
 
 class ShapeManager
 {
-
 public:
+	ShapeManager(RenderEngine& engine) : m_renderEngine(engine) {}
+
 	bool Initialize();
 	bool Shutdown();
 
@@ -39,6 +41,8 @@ private:
 
 	static ConfigReader* m_cfg;
 	BinaryWriter m_writer;
+
+	RenderEngine& m_renderEngine;
 
 };
 #endif // !SHAPEMANAGER_H_

@@ -12,13 +12,18 @@ c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\my
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\perspective.obj
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\renderengine.obj
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\shaderprogram.obj
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\shapegenerator.obj
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\soundemittercomponent.obj
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\soundengine.obj
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\soundlistenercomponent.obj
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\sunsurfergame.obj
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\textureloader.obj
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\timestamp.obj
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\uniformcallback.obj
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\configreader.obj
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\entity.obj
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\entitymanager.obj
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\graphicalcomponent.obj
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\graphicsobject.obj
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\gravitycomponent.obj
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\jumpcomponent.obj
@@ -31,6 +36,7 @@ c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\ph
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\projectilemovementcomponent.obj
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\projectilephysicscomponent.obj
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\sceneloader.obj
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\shapemanager.obj
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\filepath.obj
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\gamelogger.obj
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\gametime.obj
@@ -44,6 +50,12 @@ c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\co
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\collisioncomponent.obj
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\collisiondetection.obj
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\component.obj
+c:\users\trevor\desktop\game engine (refactored)\game engine\debug\sun surfer.ilk
+c:\users\trevor\desktop\game engine (refactored)\game engine\debug\sun surfer.exe
+c:\users\trevor\desktop\game engine (refactored)\game engine\debug\sun surfer.pdb
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\sun surfer.tlog\cl.command.1.tlog
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\sun surfer.tlog\cl.read.1.tlog
 c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\sun surfer.tlog\cl.write.1.tlog
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\sun surfer.tlog\link.command.1.tlog
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\sun surfer.tlog\link.read.1.tlog
+c:\users\trevor\desktop\game engine (refactored)\game engine\sun surfer\debug\sun surfer.tlog\link.write.1.tlog

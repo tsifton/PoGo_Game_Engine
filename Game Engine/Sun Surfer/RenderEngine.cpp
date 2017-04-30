@@ -9,20 +9,6 @@
 
 #include <sstream>
 
-//ConfigReader* RenderEngine::m_cfg;
-//MyWindow*     RenderEngine::m_window;
-//
-//ShaderProgram RenderEngine::m_shaders[NumShaders];
-//GLint RenderEngine::currentShaderID = -1;
-//
-//int    RenderEngine::lightCounter = 0;
-//Light* RenderEngine::m_lights[MAX_LIGHTS];
-//
-//GLuint RenderEngine::m_shadowFrameBuffer;
-//GLuint RenderEngine::m_depthRenderBuffer;
-//GLuint RenderEngine::m_ambientRenderBuffer;
-//const Texture* RenderEngine::m_diffuseAndSpecularTexture;
-
 bool RenderEngine::Initialize()
 {
 	if (!BufferManager::Initialize()) return false;
@@ -43,76 +29,77 @@ bool RenderEngine::Shutdown()
 
 bool RenderEngine::Draw(glm::mat4 worldToViewMat, glm::mat4 viewToProjectionMat)
 {
-	glEnable(GL_DEPTH_TEST);
-	glDepthMask(GL_TRUE);
-	glDisable(GL_STENCIL_TEST);
-
-	//first pass draw scene normally, outputting color data to the ambient buffer and diffuse+specular to a texture
-	glBindFramebuffer(GL_FRAMEBUFFER, m_shadowFrameBuffer);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	DrawScene(worldToViewMat, viewToProjectionMat);
+	//glEnable(GL_DEPTH_TEST);
+	//glDepthMask(GL_TRUE);
+	//glDisable(GL_STENCIL_TEST);
 
-	// Second Pass
-	const GLuint     unbindFbo = 0; // 0 unbinds fbo
-	GLint      srcX0 = 0;
-	GLint      srcY0 = 0;
-	GLint      srcX1 = m_window->width();
-	GLint      srcY1 = m_window->height();
-	GLint      destX0 = 0;
-	GLint      destY0 = 0;
-	GLint      destX1 = m_window->width();
-	GLint      destY1 = m_window->height();
-	const GLbitfield mask = GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT;
-	const GLenum     filter = GL_NEAREST;
+	////first pass draw scene normally, outputting color data to the ambient buffer and diffuse+specular to a texture
+	//glBindFramebuffer(GL_FRAMEBUFFER, m_shadowFrameBuffer);
+	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	//DrawScene(worldToViewMat, viewToProjectionMat);
 
-	glBindFramebuffer(GL_READ_FRAMEBUFFER, m_shadowFrameBuffer);
-	glBindFramebuffer(GL_DRAW_FRAMEBUFFER, unbindFbo);
-	glBlitFramebuffer(srcX0, srcY0, srcX1, srcY1, destX0, destY0, destX1, destY1, mask, filter);
+	//// Second Pass
+	//const GLuint     unbindFbo = 0; // 0 unbinds fbo
+	//GLint      srcX0 = 0;
+	//GLint      srcY0 = 0;
+	//GLint      srcX1 = 1920;
+	//GLint      srcY1 = 1080;
+	//GLint      destX0 = 0;
+	//GLint      destY0 = 0;
+	//GLint      destX1 = 1920;
+	//GLint      destY1 = 1080;
+	//const GLbitfield mask = GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT;
+	//const GLenum     filter = GL_NEAREST;
 
-	glColorMask(GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE);
-	glDepthMask(GL_FALSE);
+	//glBindFramebuffer(GL_READ_FRAMEBUFFER, m_shadowFrameBuffer);
+	//glBindFramebuffer(GL_DRAW_FRAMEBUFFER, unbindFbo);
+	//glBlitFramebuffer(srcX0, srcY0, srcX1, srcY1, destX0, destY0, destX1, destY1, mask, filter);
 
-	glBindFramebuffer(GL_FRAMEBUFFER, unbindFbo);
+	//glColorMask(GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE);
+	//glDepthMask(GL_FALSE);
 
-	const GLenum stencilFunc = GL_ALWAYS;
-	const GLint  stencilRefValue = 0;
-	const GLuint stencilMask = 0xFFFF;
-	const GLenum stencilFailAction = GL_KEEP;
-	const GLenum depthFailAction = GL_KEEP;
-	const GLenum frontPassAction = GL_INCR_WRAP;
-	const GLenum backPassAction = GL_DECR_WRAP;
+	//glBindFramebuffer(GL_FRAMEBUFFER, unbindFbo);
 
-	glClear(GL_STENCIL_BUFFER_BIT);
-	glEnable(GL_STENCIL_TEST);
-	glStencilFunc(stencilFunc, stencilRefValue, stencilMask);
-	glStencilOpSeparate(GL_FRONT, stencilFailAction, depthFailAction, frontPassAction);
-	glStencilOpSeparate(GL_BACK, stencilFailAction, depthFailAction, backPassAction);
+	//const GLenum stencilFunc = GL_ALWAYS;
+	//const GLint  stencilRefValue = 0;
+	//const GLuint stencilMask = 0xFFFF;
+	//const GLenum stencilFailAction = GL_KEEP;
+	//const GLenum depthFailAction = GL_KEEP;
+	//const GLenum frontPassAction = GL_INCR_WRAP;
+	//const GLenum backPassAction = GL_DECR_WRAP;
 
-	DrawScene(worldToViewMat, viewToProjectionMat, ShaderType::ShadowVolumeGeneration, GL_TRIANGLES);
+	//glClear(GL_STENCIL_BUFFER_BIT);
+	//glEnable(GL_STENCIL_TEST);
+	//glStencilFunc(stencilFunc, stencilRefValue, stencilMask);
+	//glStencilOpSeparate(GL_FRONT, stencilFailAction, depthFailAction, frontPassAction);
+	//glStencilOpSeparate(GL_BACK, stencilFailAction, depthFailAction, backPassAction);
 
-	// Pass Three
-	glDisable(GL_DEPTH_TEST);
-	glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
+	//DrawScene(worldToViewMat, viewToProjectionMat, ShaderType::ShadowVolumeGeneration, GL_TRIANGLES);
 
-	const GLenum stencilFunc2 = GL_EQUAL;
-	const GLint  stencilRefValue2 = 0;
-	const GLuint stencilMask2 = 0xFFFF;
-	const GLenum failAction = GL_KEEP;
-	const GLenum zFailAction = GL_KEEP;
-	const GLenum zPassAction = GL_KEEP;
+	//// Pass Three
+	//glDisable(GL_DEPTH_TEST);
+	//glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
 
-	glStencilFunc(stencilFunc2, stencilRefValue2, stencilMask2);
-	glStencilOp(failAction, zFailAction, zPassAction);
+	//const GLenum stencilFunc2 = GL_EQUAL;
+	//const GLint  stencilRefValue2 = 0;
+	//const GLuint stencilMask2 = 0xFFFF;
+	//const GLenum failAction = GL_KEEP;
+	//const GLenum zFailAction = GL_KEEP;
+	//const GLenum zPassAction = GL_KEEP;
 
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_ONE, GL_ONE);
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, m_diffuseAndSpecularTexture->id);
-	m_shaders[ShaderType::FullscreenQuad].UseProgram();
-	glDrawArrays(GL_POINTS, 0, 1);
+	//glStencilFunc(stencilFunc2, stencilRefValue2, stencilMask2);
+	//glStencilOp(failAction, zFailAction, zPassAction);
 
-	glDisable(GL_BLEND);
-	glEnable(GL_DEPTH_TEST);
+	//glEnable(GL_BLEND);
+	//glBlendFunc(GL_ONE, GL_ONE);
+	//glActiveTexture(GL_TEXTURE0);
+	//glBindTexture(GL_TEXTURE_2D, m_diffuseAndSpecularTexture->id);
+	//m_shaders[ShaderType::FullscreenQuad].UseProgram();
+	//glDrawArrays(GL_POINTS, 0, 1);
+
+	//glDisable(GL_BLEND);
+	//glEnable(GL_DEPTH_TEST);
 	return true;
 }
 
@@ -209,7 +196,7 @@ bool RenderEngine::DrawScene(glm::mat4 worldToViewMat, glm::mat4 viewToProjectio
 
 void RenderEngine::SetLightingUniforms(GraphicsObject * gob, ShaderProgram * shader)
 {
-	/*std::vector<int> lightIndices = gob->GetLightIndices();
+	std::vector<int> lightIndices = gob->material.GetLightIndices();
 	int numIndices = lightIndices.size();
 
 	if (numIndices > 0)
@@ -249,7 +236,7 @@ void RenderEngine::SetLightingUniforms(GraphicsObject * gob, ShaderProgram * sha
 		}
 
 		if ((uniformIndex = shader->GetUniformLocation("numLights")) != -1) glUniform1iv(uniformIndex, 1, &lightsUsed);
-	}*/
+	}
 }
 
 std::string RenderEngine::GetLightPropertyName(const std::string& propertyName, unsigned int lightIndex)
@@ -419,12 +406,12 @@ void RenderEngine::CreateShadowFrameBuffer()
 
 	glGenRenderbuffers(1, &m_depthRenderBuffer);
 	glBindRenderbuffer(GL_RENDERBUFFER, m_depthRenderBuffer);
-	glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT24, m_window->width(), m_window->height());
+	glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT24, 1920, 1080);
 	glBindRenderbuffer(GL_RENDERBUFFER, 0);
 
 	glGenRenderbuffers(1, &m_ambientRenderBuffer);
 	glBindRenderbuffer(GL_RENDERBUFFER, m_ambientRenderBuffer);
-	glRenderbufferStorage(GL_RENDERBUFFER, GL_RGBA8, m_window->width(), m_window->height());
+	glRenderbufferStorage(GL_RENDERBUFFER, GL_RGBA8, 1920, 1080);
 	glBindRenderbuffer(GL_RENDERBUFFER, 0);
 
 	glGenFramebuffers(1, &m_shadowFrameBuffer);

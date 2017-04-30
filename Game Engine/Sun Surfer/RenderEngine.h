@@ -42,8 +42,11 @@ class Mesh;
 class RenderEngine
 {
 public:
-	RenderEngine(MyWindow * window, ConfigReader * cfg = nullptr) : m_window(window), m_cfg(cfg), m_textureLoader(TextureLoader::Instance()) { Initialize(); }
-	~RenderEngine() { Shutdown(); }
+	RenderEngine(ConfigReader * cfg = nullptr) : m_cfg(cfg), m_textureLoader(TextureLoader::Instance()) {}
+	~RenderEngine() {}
+
+	bool Initialize();
+	bool Shutdown();
 
 	bool Draw(glm::mat4 worldToViewMat, glm::mat4 projectionMat);
 	bool DrawScene(glm::mat4 worldToViewMat, glm::mat4 viewToProjectionMat);
@@ -59,9 +62,6 @@ public:
 	GraphicsObject* GetNearestObjectToPosition(const glm::vec3& position);
 
 private:
-	bool Initialize();
-	bool Shutdown();
-
 	bool InitializeShaders();
 	bool ShutdownShaders();
 
@@ -71,7 +71,7 @@ private:
 	void SetLightingUniforms(GraphicsObject* gob, ShaderProgram* shader);
 	std::string GetLightPropertyName(const std::string& propertyName, unsigned int lightIndex);
 
-	unsigned int lightCounter;
+	unsigned int lightCounter = 0;
 	static const int MAX_LIGHTS = 20;
 	Light* m_lights[MAX_LIGHTS];
 
@@ -86,7 +86,6 @@ private:
 
 	TextureLoader&  m_textureLoader;
 	ConfigReader*	m_cfg;
-	MyWindow*		m_window;
 };
 
 #endif // !RENDERENGINE_H_
