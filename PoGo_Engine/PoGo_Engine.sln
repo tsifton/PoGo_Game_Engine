@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pogo_graphics", "pogo_graphics\pogo_graphics.vcxproj", "{DE6EEFA4-0D51-44E5-8176-1ACFD08CA140}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pogo_core", "pogo_core\pogo_core.vcxproj", "{539C44EC-3ADE-4659-B6A0-D0EA83D9E4E9}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PoGo Demo", "PoGo Demo\PoGo Demo.vcxproj", "{D85F4889-6AC6-4EA4-AB71-6FC24C9F5321}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE6EEFA4-0D51-44E5-8176-1ACFD08CA140}.Debug|x64.ActiveCfg = Debug|x64
+		{DE6EEFA4-0D51-44E5-8176-1ACFD08CA140}.Debug|x64.Build.0 = Debug|x64
+		{DE6EEFA4-0D51-44E5-8176-1ACFD08CA140}.Debug|x86.ActiveCfg = Debug|Win32
+		{DE6EEFA4-0D51-44E5-8176-1ACFD08CA140}.Debug|x86.Build.0 = Debug|Win32
+		{DE6EEFA4-0D51-44E5-8176-1ACFD08CA140}.Release|x64.ActiveCfg = Release|x64
+		{DE6EEFA4-0D51-44E5-8176-1ACFD08CA140}.Release|x64.Build.0 = Release|x64
+		{DE6EEFA4-0D51-44E5-8176-1ACFD08CA140}.Release|x86.ActiveCfg = Release|Win32
+		{DE6EEFA4-0D51-44E5-8176-1ACFD08CA140}.Release|x86.Build.0 = Release|Win32
+		{539C44EC-3ADE-4659-B6A0-D0EA83D9E4E9}.Debug|x64.ActiveCfg = Debug|x64
+		{539C44EC-3ADE-4659-B6A0-D0EA83D9E4E9}.Debug|x64.Build.0 = Debug|x64
+		{539C44EC-3ADE-4659-B6A0-D0EA83D9E4E9}.Debug|x86.ActiveCfg = Debug|Win32
+		{539C44EC-3ADE-4659-B6A0-D0EA83D9E4E9}.Debug|x86.Build.0 = Debug|Win32
+		{539C44EC-3ADE-4659-B6A0-D0EA83D9E4E9}.Release|x64.ActiveCfg = Release|x64
+		{539C44EC-3ADE-4659-B6A0-D0EA83D9E4E9}.Release|x64.Build.0 = Release|x64
+		{539C44EC-3ADE-4659-B6A0-D0EA83D9E4E9}.Release|x86.ActiveCfg = Release|Win32
+		{539C44EC-3ADE-4659-B6A0-D0EA83D9E4E9}.Release|x86.Build.0 = Release|Win32
+		{D85F4889-6AC6-4EA4-AB71-6FC24C9F5321}.Debug|x64.ActiveCfg = Debug|x64
+		{D85F4889-6AC6-4EA4-AB71-6FC24C9F5321}.Debug|x64.Build.0 = Debug|x64
+		{D85F4889-6AC6-4EA4-AB71-6FC24C9F5321}.Debug|x86.ActiveCfg = Debug|Win32
+		{D85F4889-6AC6-4EA4-AB71-6FC24C9F5321}.Debug|x86.Build.0 = Debug|Win32
+		{D85F4889-6AC6-4EA4-AB71-6FC24C9F5321}.Release|x64.ActiveCfg = Release|x64
+		{D85F4889-6AC6-4EA4-AB71-6FC24C9F5321}.Release|x64.Build.0 = Release|x64
+		{D85F4889-6AC6-4EA4-AB71-6FC24C9F5321}.Release|x86.ActiveCfg = Release|Win32
+		{D85F4889-6AC6-4EA4-AB71-6FC24C9F5321}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
