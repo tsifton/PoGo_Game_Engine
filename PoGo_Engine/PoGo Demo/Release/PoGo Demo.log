@@ -1,7 +1,9 @@
 ﻿  game.cpp
   main.cpp
   Generating code
-  All 10 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  4 of 10 functions (40.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   PoGo Demo.vcxproj -> C:\Users\Trevor\Desktop\Game Engine (Refactored)\PoGo_Engine\Release\PoGo Demo.exe
   PoGo Demo.vcxproj -> C:\Users\Trevor\Desktop\Game Engine (Refactored)\PoGo_Engine\Release\PoGo Demo.pdb (Full PDB)
