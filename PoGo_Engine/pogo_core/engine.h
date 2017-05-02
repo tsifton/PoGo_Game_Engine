@@ -18,7 +18,11 @@ namespace Pogo
 		Engine(ApplicationListener& listener, EngineConfiguration config);
 		~Engine();
 
+		bool Run();
+
 	private:
+		bool InitializeWindow();
+
 		ApplicationListener& m_listener;
 		EngineConfiguration m_config;
 		Window m_window;

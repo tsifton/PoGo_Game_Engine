@@ -11,8 +11,7 @@ namespace Pogo
 		// Virtual destructor for base cleanup
 		virtual ~ApplicationListener() {};
 
-	protected:
-		// Called by the Application before drawing
+		// Called by the Engine before drawing
 		virtual void Update() = 0;
 		// Called after Update
 		virtual void Draw() = 0;

@@ -1,7 +1,7 @@
 ﻿  game.cpp
   main.cpp
-main.cpp(5): warning C4100: 'argv': unreferenced formal parameter
-main.cpp(5): warning C4100: 'argc': unreferenced formal parameter
-game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall Pogo::ApplicationListener::ApplicationListener(void)" (__imp_??0ApplicationListener@Pogo@@QAE@XZ)
-game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: virtual __thiscall Pogo::ApplicationListener::~ApplicationListener(void)" (__imp_??1ApplicationListener@Pogo@@UAE@XZ)
-C:\Users\Trevor\Desktop\Game Engine (Refactored)\PoGo_Engine\Release\PoGo Demo.exe : fatal error LNK1120: 2 unresolved externals
+  Generating code
+  All 10 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  PoGo Demo.vcxproj -> C:\Users\Trevor\Desktop\Game Engine (Refactored)\PoGo_Engine\Release\PoGo Demo.exe
+  PoGo Demo.vcxproj -> C:\Users\Trevor\Desktop\Game Engine (Refactored)\PoGo_Engine\Release\PoGo Demo.pdb (Full PDB)

@@ -2,7 +2,10 @@
 #define WINDOW_H_
 
 #include "ExportHeader.h"
-#include "engine_config.h"
+#include "window_config.h"
+
+#include "GL\glew.h"
+#include "glfw3.h"
 
 namespace Pogo
 {
@@ -12,7 +15,14 @@ namespace Pogo
 		Window(WindowConfiguration config);
 		~Window();
 
+		// Initializes a glfw window
+		bool Initialize();
+		GLFWwindow* Get();
+
 	private:
+		static void GlfwErrorCallback(int error, const char* description);
+
+		GLFWwindow* m_window{ nullptr };
 		WindowConfiguration m_config;
 	};
 }

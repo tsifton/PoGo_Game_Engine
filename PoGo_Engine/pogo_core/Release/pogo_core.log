@@ -1,0 +1,9 @@
+﻿  engine.cpp
+  engine_config.cpp
+  window.cpp
+  window_config.cpp
+     Creating library C:\Users\Trevor\Desktop\Game Engine (Refactored)\PoGo_Engine\\..\Middleware\PoGo\pogo_core.lib and object C:\Users\Trevor\Desktop\Game Engine (Refactored)\PoGo_Engine\\..\Middleware\PoGo\pogo_core.exp
+  Generating code
+  All 21 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  pogo_core.vcxproj -> C:\Users\Trevor\Desktop\Game Engine (Refactored)\PoGo_Engine\\..\Middleware\PoGo\pogo_core.dll

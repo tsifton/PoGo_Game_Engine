@@ -1,0 +1,7 @@
+﻿  engine.cpp
+c:\users\trevor\desktop\game engine (refactored)\pogo_engine\pogo_core\engine.h(6): fatal error C1083: Cannot open include file: 'ExportHeader.h': No such file or directory
+  engine_config.cpp
+c:\users\trevor\desktop\game engine (refactored)\pogo_engine\pogo_core\engine_config.h(4): fatal error C1083: Cannot open include file: 'ExportHeader.h': No such file or directory
+  window.cpp
+c:\users\trevor\desktop\game engine (refactored)\pogo_engine\pogo_core\window.h(4): fatal error C1083: Cannot open include file: 'ExportHeader.h': No such file or directory
+  window_config.cpp
