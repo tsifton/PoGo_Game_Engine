@@ -68,11 +68,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <ExecutablePath>$(SolutionDir)..\Middleware\DLLs;$(SolutionDir)\Debug\;$(ExecutablePath);</ExecutablePath>
-  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <ExecutablePath>$(SolutionDir)..\Middleware\DLLs;$(SolutionDir)\Debug\;$(ExecutablePath);</ExecutablePath>
+    <ExecutablePath>$(SolutionDir)\Release\;$(ExecutablePath);</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ExecutablePath>$(SolutionDir)\Release\;</ExecutablePath>
@@ -85,7 +83,7 @@
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)\pogo_core\;$(SolutionDir)..\Middleware\export\include\;$(SolutionDir)..\Middleware\glfw\include\GLFW\;$(SolutionDir)..\Middleware\glew\include\;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\pogo_core\;$(SolutionDir)..\Middleware\glfw\include\GLFW\;$(SolutionDir)..\Middleware\glew\include\GL;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)\Debug\;</AdditionalLibraryDirectories>
@@ -111,12 +109,12 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)\pogo_core\;$(SolutionDir)..\Middleware\export\include\;$(SolutionDir)..\Middleware\glfw\include\GLFW\;$(SolutionDir)..\Middleware\glew\include\;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\pogo_core\;$(SolutionDir)..\Middleware\glfw\include\GLFW\;$(SolutionDir)..\Middleware\glew\include\;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(SolutionDir)\Debug\;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\Release\;</AdditionalLibraryDirectories>
       <AdditionalDependencies>pogo_core.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -145,10 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\pogo_core\pogo_core.vcxproj">
-      <Project>{539c44ec-3ade-4659-b6a0-d0ea83d9e4e9}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\pogo_graphics\pogo_graphics.vcxproj">
-      <Project>{de6eefa4-0d51-44e5-8176-1acfd08ca140}</Project>
+      <Project>{9f06132c-e3ee-4ed4-80fa-7333b086acf9}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

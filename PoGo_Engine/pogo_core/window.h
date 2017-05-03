@@ -1,15 +1,14 @@
 #ifndef WINDOW_H_
 #define WINDOW_H_
 
-#include "ExportHeader.h"
 #include "window_config.h"
 
-#include "GL\glew.h"
+#include "glew.h"
 #include "glfw3.h"
 
 namespace Pogo
 {
-	class ENGINE_SHARED Window
+	class Window
 	{
 	public:
 		Window(WindowConfiguration config);
@@ -17,7 +16,9 @@ namespace Pogo
 
 		// Initializes a glfw window
 		bool Initialize();
-		GLFWwindow* Get();
+		bool IsOpen();
+		void SwapBuffers();
+		void PollEvents();
 
 	private:
 		static void GlfwErrorCallback(int error, const char* description);

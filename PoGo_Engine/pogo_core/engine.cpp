@@ -22,21 +22,14 @@ namespace Pogo
 	{
 		if (!InitializeWindow()) return false;
 
-		while (!glfwWindowShouldClose(m_window.Get()))
+		while (m_window.IsOpen())
 		{
 			m_listener.Update();
 
-			float ratio;
-			int width, height;
-			glfwGetFramebufferSize(m_window.Get(), &width, &height);
-			ratio = width / (float)height;
-			glViewport(0, 0, width, height);
-			glClear(GL_COLOR_BUFFER_BIT);
-
 			m_listener.Draw();
 
-			glfwSwapBuffers(m_window.Get());
-			glfwPollEvents();
+			m_window.SwapBuffers();
+			m_window.PollEvents();
 		}
 		return true;
 	}

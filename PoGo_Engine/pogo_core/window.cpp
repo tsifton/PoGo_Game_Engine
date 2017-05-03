@@ -20,6 +20,7 @@ namespace Pogo
 
 	bool Window::Initialize()
 	{
+
 		glfwSetErrorCallback(Window::GlfwErrorCallback);
 
 		// If glfw fails to init, the error callback will handle the error logging
@@ -48,12 +49,31 @@ namespace Pogo
 			return false;
 		}
 
+		float ratio;
+		int width, height;
+		glfwGetFramebufferSize(m_window, &width, &height);
+		ratio = width / (float)height;
+		glViewport(0, 0, width, height);
+		glClear(GL_COLOR_BUFFER_BIT);
+
+		glfwSwapInterval(1);
+
 		return true;
 	}
 
-	GLFWwindow * Window::Get()
+	bool Window::IsOpen()
 	{
-		return m_window;
+		return !glfwWindowShouldClose(m_window);
+	}
+
+	void Window::SwapBuffers()
+	{
+		glfwSwapBuffers(m_window);
+	}
+
+	void Window::PollEvents()
+	{
+		glfwPollEvents();
 	}
 
 	void Window::GlfwErrorCallback(int error, const char * description)

@@ -1,11 +1,10 @@
 #ifndef APPLICATIONLISTENER_H_
 #define APPLICATIONLISTENER_H_
 
-#include "ExportHeader.h"
 
 namespace Pogo
 {
-	class ENGINE_SHARED ApplicationListener
+	class ApplicationListener
 	{
 	public:
 		// Virtual destructor for base cleanup

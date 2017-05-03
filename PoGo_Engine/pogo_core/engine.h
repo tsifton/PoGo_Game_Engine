@@ -3,7 +3,6 @@
 
 #include <string>
 
-#include "ExportHeader.h"
 #include "engine_config.h"
 #include "window.h"
 
@@ -12,7 +11,7 @@ namespace Pogo
 	// Forward Declarations
 	class ApplicationListener;
 
-	class ENGINE_SHARED Engine
+	class Engine
 	{
 	public:
 		Engine(ApplicationListener& listener, EngineConfiguration config);

@@ -12,10 +12,10 @@ Game::~Game()
 
 void Game::Update()
 {
-	printf("Updated the game!");
+	/*printf("Updated the game!\n");*/
 }
 
 void Game::Draw()
 {
-	printf("Drawed the game!");
+	/*printf("Drawed the game!\n");*/
 }
