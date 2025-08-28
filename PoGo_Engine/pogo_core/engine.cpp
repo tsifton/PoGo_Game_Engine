@@ -1,6 +1,6 @@
 #include "engine.h"
 
-#include "glfw3.h"
+#include <GLFW/glfw3.h>
 #include "application_listener.h"
 
 namespace Pogo
