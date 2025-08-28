@@ -26,37 +26,63 @@ include_directories(
 )
 
 # Find required packages
+find_package(OpenGL REQUIRED)
+
 if(WINDOWS_BUILD)
-    # On Windows, we'll link with system OpenGL and expect GLFW/GLEW to be installed
-    find_package(OpenGL REQUIRED)
-    
+    # Windows static linking configuration
     # Try to find GLFW and GLEW via find_package (works with vcpkg, etc.)
     find_package(glfw3 QUIET)
     find_package(GLEW QUIET)
     
     if(NOT glfw3_FOUND OR NOT GLEW_FOUND)
-        message(STATUS "GLFW or GLEW not found via find_package. Trying manual linking...")
-        message(STATUS "Make sure GLFW and GLEW are installed (e.g., via vcpkg)")
-        # Fallback to manual library names
+        message(STATUS "GLFW or GLEW not found via find_package. Using static library names...")
+        message(STATUS "Make sure GLFW and GLEW static libraries are installed (e.g., via vcpkg)")
+        # Use static library names for Windows
         set(GLFW3_LIBRARIES glfw3)
-        set(GLEW_LIBRARIES glew32)
+        set(GLEW_LIBRARIES glew32s)  # Static version
         if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-            set(GLEW_LIBRARIES glew32d)
+            set(GLEW_LIBRARIES glew32sd)  # Static debug version
         endif()
+        # Add Windows system libraries required for static GLFW
+        set(GLFW_SYSTEM_LIBS gdi32 user32 shell32 kernel32 winmm)
     else()
         set(GLFW3_LIBRARIES glfw)
         set(GLEW_LIBRARIES GLEW::GLEW)
+        # Add Windows system libraries for static linking
+        set(GLFW_SYSTEM_LIBS gdi32 user32 shell32 kernel32 winmm)
     endif()
 else()
-    # Unix/Linux build using pkg-config
-    find_package(PkgConfig REQUIRED)
-    find_package(OpenGL REQUIRED)
+    # Unix/Linux static linking configuration
+    # Use static libraries directly instead of pkg-config
+    message(STATUS "Configuring for static linking on Unix/Linux...")
     
-    pkg_check_modules(GLFW REQUIRED glfw3)
-    pkg_check_modules(GLEW REQUIRED glew)
+    # Check for static libraries
+    find_library(GLFW3_STATIC_LIB 
+        NAMES libglfw3.a glfw3
+        PATHS /usr/lib/x86_64-linux-gnu /usr/local/lib /usr/lib
+        NO_DEFAULT_PATH
+    )
+    find_library(GLEW_STATIC_LIB 
+        NAMES libGLEW.a GLEW
+        PATHS /usr/lib/x86_64-linux-gnu /usr/local/lib /usr/lib
+        NO_DEFAULT_PATH
+    )
     
-    set(GLFW3_LIBRARIES ${GLFW_LIBRARIES})
-    set(GLEW_LIBRARIES ${GLEW_LIBRARIES})
+    if(GLFW3_STATIC_LIB AND GLEW_STATIC_LIB)
+        message(STATUS "Found static libraries: ${GLFW3_STATIC_LIB}, ${GLEW_STATIC_LIB}")
+        set(GLFW3_LIBRARIES ${GLFW3_STATIC_LIB})
+        set(GLEW_LIBRARIES ${GLEW_STATIC_LIB})
+        # Add system libraries required for static GLFW on Linux
+        set(GLFW_SYSTEM_LIBS X11 Xrandr Xinerama Xcursor Xi pthread dl m)
+    else()
+        message(STATUS "Static libraries not found, falling back to pkg-config...")
+        find_package(PkgConfig REQUIRED)
+        pkg_check_modules(GLFW REQUIRED glfw3)
+        pkg_check_modules(GLEW REQUIRED glew)
+        set(GLFW3_LIBRARIES ${GLFW_LIBRARIES})
+        set(GLEW_LIBRARIES ${GLEW_LIBRARIES})
+        set(GLFW_SYSTEM_LIBS "")
+    endif()
 endif()
 
 # Core engine library
@@ -83,6 +109,7 @@ target_link_libraries(pogo_core
     ${GLFW3_LIBRARIES}
     ${GLEW_LIBRARIES}
     ${OPENGL_LIBRARIES}
+    ${GLFW_SYSTEM_LIBS}
 )
 
 # Platform-specific compilation flags
@@ -90,9 +117,16 @@ if(WINDOWS_BUILD)
     target_compile_definitions(pogo_core PRIVATE GLEW_STATIC)
     if(MSVC)
         target_compile_options(pogo_core PRIVATE /W4)
+        # Set static runtime for MSVC
+        target_compile_options(pogo_core PRIVATE /MT$<$<CONFIG:Debug>:d>)
     endif()
 else()
-    target_compile_options(pogo_core PRIVATE ${GLFW_CFLAGS_OTHER} ${GLEW_CFLAGS_OTHER})
+    # Define GLEW_STATIC for Unix/Linux static builds
+    if(GLFW3_STATIC_LIB AND GLEW_STATIC_LIB)
+        target_compile_definitions(pogo_core PRIVATE GLEW_STATIC)
+    else()
+        target_compile_options(pogo_core PRIVATE ${GLFW_CFLAGS_OTHER} ${GLEW_CFLAGS_OTHER})
+    endif()
 endif()
 
 # Demo executable
@@ -114,6 +148,7 @@ target_link_libraries(pogo_demo
     ${GLFW3_LIBRARIES}
     ${GLEW_LIBRARIES}
     ${OPENGL_LIBRARIES}
+    ${GLFW_SYSTEM_LIBS}
 )
 
 # Platform-specific compilation flags for demo
@@ -121,7 +156,14 @@ if(WINDOWS_BUILD)
     target_compile_definitions(pogo_demo PRIVATE GLEW_STATIC)
     if(MSVC)
         target_compile_options(pogo_demo PRIVATE /W4)
+        # Set static runtime for MSVC
+        target_compile_options(pogo_demo PRIVATE /MT$<$<CONFIG:Debug>:d>)
     endif()
 else()
-    target_compile_options(pogo_demo PRIVATE ${GLFW_CFLAGS_OTHER} ${GLEW_CFLAGS_OTHER})
+    # Define GLEW_STATIC for Unix/Linux static builds
+    if(GLFW3_STATIC_LIB AND GLEW_STATIC_LIB)
+        target_compile_definitions(pogo_demo PRIVATE GLEW_STATIC)
+    else()
+        target_compile_options(pogo_demo PRIVATE ${GLFW_CFLAGS_OTHER} ${GLEW_CFLAGS_OTHER})
+    endif()
 endif()
