@@ -181,6 +181,28 @@ The engine follows a simple game loop pattern:
    - Render frame
    - Swap buffers and poll events
 
+## Running the Application
+
+### Windows
+After building, the demo executable will be located at:
+- Visual Studio: `PoGo_Engine/Debug/PoGo Demo.exe` or `PoGo_Engine/Release/PoGo Demo.exe`
+- CMake builds: `build/Release/pogo_demo.exe` or `build/pogo_demo.exe`
+
+You can run it directly by double-clicking the executable or from the command line:
+```cmd
+cd build\Release
+pogo_demo.exe
+```
+
+### Linux
+After building, run the demo with:
+```bash
+cd build
+./pogo_demo
+```
+
+The application will open an OpenGL window with a simple demo scene. Press ESC or close the window to exit.
+
 ## Troubleshooting
 
 ### Windows Build Issues

@@ -4,6 +4,11 @@ project(PoGo_Game_Engine)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# Set OpenGL preference to avoid warnings
+if(POLICY CMP0072)
+    cmake_policy(SET CMP0072 NEW)
+endif()
+
 # Platform detection
 if(WIN32)
     set(WINDOWS_BUILD TRUE)
